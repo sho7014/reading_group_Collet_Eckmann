@@ -5,6 +5,19 @@
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
 
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}
+\newtheorem*{theorem*}{定理}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem*{lemma*}{補題}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem*{definition*}{定義}
+
+\numberwithin{theorem}{section}  
+\numberwithin{equation}{section} 
+\renewcommand\proofname{\bf 証明}
+
 \SetupKeyvalOptions{family=title,prefix=title@}
 \DeclareStringOption[1]{chap}[1]
 \ProcessKeyvalOptions*

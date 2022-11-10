@@ -1,0 +1,22 @@
+\RequirePackage{kvoptions}
+\usepackage[utf8]{inputenc}
+\usepackage[truedimen,top=20mm,bottom=20mm,left=10mm,right=10mm]{geometry}
+\usepackage[dvipdfmx,colorlinks]{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+
+\SetupKeyvalOptions{family=title,prefix=title@}
+\DeclareStringOption[1]{chap}[1]
+\ProcessKeyvalOptions*
+
+\title{\title@chap 章}
+\date{\today}
+
+\makeatletter
+\def\@maketitle{
+\centering{\Large \textbf{\@title} \par} %タイトル
+\par\vskip 1.5em
+}
+\makeatother
+
+\renewcommand{\thesubsection}{Exercise\hspace{-6.0pt}}

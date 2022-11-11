@@ -7,29 +7,31 @@
 
 \usepackage{amsthm}
 \theoremstyle{definition}
-\newtheorem{theorem}{定理}
-\newtheorem*{theorem*}{定理}
-\newtheorem{lemma}[theorem]{補題}
-\newtheorem*{lemma*}{補題}
-\newtheorem{definition}[theorem]{定義}
-\newtheorem*{definition*}{定義}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+
 
 \numberwithin{theorem}{section}  
-\numberwithin{equation}{section} 
-\renewcommand\proofname{\bf 証明}
+\numberwithin{equation}{section}
 
 \SetupKeyvalOptions{family=title,prefix=title@}
 \DeclareStringOption[1]{chap}[1]
 \ProcessKeyvalOptions*
 
-\title{\title@chap 章}
+\title{Chapter \title@chap}
 \date{\today}
 
 \makeatletter
 \def\@maketitle{
-\centering{\Large \textbf{\@title} \par} %タイトル
+\centering{\Large \textbf{\@title} \par}
 \par\vskip 1.5em
 }
 \makeatother
+
+\newcommand{\hruleskip}{\vskip 1.0em \hrule \vskip 1.0em}
 
 \renewcommand{\thesubsection}{Exercise\hspace{-6.0pt}}

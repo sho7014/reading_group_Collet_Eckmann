@@ -1,85 +1,141 @@
-\documentclass[a4paper,11pt,uplatex]{jsarticle}
+\documentclass[a4paper,11pt,fleqn]{article}
 \usepackage[chap=2]{../ex}
 
 \begin{document}
 
 \maketitle
-\subsection*{正誤一覧}
+\subsection*{Errata}
 \begin{itemize}
     \item p.~11, Sec.~2.3, para.~2: 
 
-    誤: $h:\Omega \to \mathbb{R}^t$
+    error: $h:\Omega \to \mathbb{R}^t$
 
-    正: $h:\Omega \to \mathbb{R}$
-
-    \item p.~15: 
-
-    誤: $\varrho = \sqrt{u^2+v^2}$
-
-    正: $\varrho = \sqrt{u^2+v^2}-1$
+    correction: $h:\Omega \to \mathbb{R}$
 
     \item p.~15: 
 
-    誤: $\varrho + 0.4\cos(\varphi)$
+    error: $\varrho = \sqrt{u^2+v^2}$
 
-    正: $0.25\varrho + 0.4\cos(\varphi)$
+    correction: $\varrho = \sqrt{u^2+v^2}-1$
+
+    \item p.~15: 
+
+    error: $\varrho + 0.4\cos(\varphi)$
+
+    correction: $0.25\varrho + 0.4\cos(\varphi)$
 
 \end{itemize}
-
+\hruleskip
 \subsection{2.5.}
-
-($\Rightarrow$) ${\bf X}, {\bf Y}$ に対応する流れをそれぞれ ${\varphi}_t, {\psi}_t$ とする．流れの定義より，
+($\Rightarrow$) Let ${\varphi}_t, {\psi}_t$ be flows of ${\bf X}, {\bf Y}$ respectively. The definition of the flow leads to
 \begin{equation}
-    \dot{\varphi}_t({\bm x}) = {\bf X}({\varphi}_t({\bm x})), \quad \dot{\psi}_t({\bm x}) = {\bf Y}({\psi}_t({\bm x})) \label{eq: flow}
+    \dot{\varphi}_t({\bm x}) = {\bf X}({\varphi}_t({\bm x})), \quad \dot{\psi}_t({\bm x}) = {\bf Y}({\psi}_t({\bm x})).  \label{eq: flow}
 \end{equation}
-を満たす．微分同相写像 ${\bf \Phi}$ についてこれらの流れが共役，つまり
-${\bf \Phi} \circ {\varphi}_t ({\bm x}) = {\psi}_t \circ {\bf \Phi}({\bm x})$ と仮定する．この式の両辺を $t$ で微分すると，
+Suppose a diffeomorphism ${\bf \Phi}$ conjugates the flows, i.e., 
+${\bf \Phi} \circ {\varphi}_t ({\bm x}) = {\psi}_t \circ {\bf \Phi}({\bm x})$. By differentiating both sides of this equation w.r.t. $t$, 
 \begin{align}
-    \left[ {\mathrm D}{\bf \Phi}({\varphi}_t({\bm x})) \right]\dot{\varphi}_t({\bm x}) = \dot{\psi}_t \circ {\bf \Phi}({\bm x}) \nonumber \\
-    \Leftrightarrow \left[ {\mathrm D}{\bf \Phi}({\varphi}_t({\bm x})) \right]{\bf X}({\varphi}_t({\bm x})) = {\bf Y}({\psi}_t \circ {\bf \Phi}({\bm x}))
+    &\left[ {\mathrm D}{\bf \Phi}({\varphi}_t({\bm x})) \right]\dot{\varphi}_t({\bm x}) = \dot{\psi}_t \circ {\bf \Phi}({\bm x}) \nonumber \\
+    \Leftrightarrow &\left[ {\mathrm D}{\bf \Phi}({\varphi}_t({\bm x})) \right]{\bf X}({\varphi}_t({\bm x})) = {\bf Y}({\psi}_t \circ {\bf \Phi}({\bm x}))
 \end{align}
-$t=0$ を代入すると，${\varphi}_0, {\psi}_0$ は恒等写像なので，
+Let $t=0$, then we obtain 
 \begin{equation}
-    {\rm D}_x{\bf \Phi}\cdot {\bf X}({\bm x}) = {\bf Y}({\bf \Phi}({\bm x})) \label{diffeo25}
+    {\rm D}_x{\bf \Phi}\cdot {\bf X}({\bm x}) = {\bf Y}({\bf \Phi}({\bm x})), \label{diffeo25}
 \end{equation}
+since ${\varphi}_0, {\psi}_0$ are identity map. 
+\vskip 1.0em
 
-($\Leftarrow$) 式 (\ref{diffeo25}) を満たす微分同相写像について，${\bm y}(t) = {\bf \Phi}\circ {\varphi}_t ({\bm x})$ とする．このとき
+($\Leftarrow$) Consider a diffeomorphism ${\bf \Phi}$ which satisfies Eq.~(\ref{diffeo25}). Let ${\bm y}(t) = {\bf \Phi}\circ {\varphi}_t ({\bm x})$. Then 
 \begin{align}
     \dot{\bm y}(t) = D{\bf \Phi}({\varphi}_t({\bm x})){\bf X}({\varphi}_t({\bm x})) &= {\bf Y}\circ {\bf \Phi} \circ {\varphi}_t ({\bm x}) \quad (\because \ \text{eq.~}(\ref{diffeo25})) \nonumber \\
-    &= {\bf Y}({\bm y}(t))
+    &= {\bf Y}({\bm y}(t)). 
 \end{align}
-したがって ${\bm y}(t)$ は ${\bf \Phi}({\bm x})$ を初期条件とし，${\bf Y}$ をベクトル場とする微分方程式の時刻 $t$ における解である．つまり ${\bm y} (t)= {\psi}_t \circ {\bf \Phi}({\bm x})$ である．
+Thus ${\bm y}(t)$ is a solution of the ODE of vector field ${\bf Y}$ and of initial condition ${\bf \Phi}({\bm x})$. That is, ${\bm y} (t)= {\psi}_t \circ {\bf \Phi}({\bm x})$. 
+
+\hruleskip
 
 \subsection{2.14.}
-$(\varrho,\varphi,w)$ 座標系ではこのトーラスは
+In the $(\varrho,\varphi,w)$ coordinate system, the torus is written as 
 \begin{equation}
-    (\varrho,\varphi,w)^\top = (0.8\sin{\vartheta},\varphi,0.8\cos{\vartheta})^\top
+    (\varrho,\varphi,w)^\top = (0.8\sin{\vartheta},\varphi,0.8\cos{\vartheta})^\top.
 \end{equation}
-となる．ソレノイド写像を ${\bm S}$ と表す．2 点 ${\bm p}_1 = (\varrho_1,\varphi_1,w_1)^\top, {\bm p}_2 = (\varrho_2,\varphi_2,w_2)^\top$ に対して，${\bm S}({\bm p}_1) = {\bm S}({\bm p}_2) $ とすると，第 2 成分より $\varphi_1=\varphi_2$．これを第 1, 3 成分より $\varrho_1=\varrho_2, w_1 = w_2$ を得る．したがって，ソレノイド写像は単射である．
+Let ${\bm S}$ be the solenoid map and ${\bm p}_1 = (\varrho_1,\varphi_1,w_1)^\top, {\bm p}_2 = (\varrho_2,\varphi_2,w_2)^\top$. Suppose ${\bm S}({\bm p}_1) = {\bm S}({\bm p}_2) $. Then $\varphi_1=\varphi_2$ follows from the second component of this equation. The other components provide $\varrho_1=\varrho_2, w_1 = w_2$. Therefore the solenoid map is injective. The solenoid map operates as
 \begin{equation}
-    {\bm S}({\bm p})= (0.2\sin{\vartheta}+0.4\cos{\varphi},2\varphi,0.2\cos{\vartheta}+0.4\sin{\varphi})^\top
+    {\bm S}({\bm p})= (0.2\sin{\vartheta}+0.4\cos{\varphi},2\varphi,0.2\cos{\vartheta}+0.4\sin{\varphi})^\top. 
 \end{equation}
-であり，
+Then we obtain 
 \begin{align}
-    S({\bm p})_1^2+S({\bm p})_3^2 = 0.2+0.16\sin{\vartheta}\cos{\varphi}+0.16\cos{\vartheta}\sin{\varphi} \le 0.52 < 0.64 = ({\bm p})_1^2+({\bm p})_3^2
+    S({\bm p})_1^2+S({\bm p})_3^2 = 0.2+0.16\sin{\vartheta}\cos{\varphi}+0.16\cos{\vartheta}\sin{\varphi} \le 0.52 < 0.64 = ({\bm p})_1^2+({\bm p})_3^2. 
 \end{align}
-したがってこの単射は strict．
+Thus the injection is strict. 
+
+\hruleskip
 
 \subsection{2.16.}
-区分拡大写像 $f$ に対応する区間を $J_f := \{I_{f,j}\}_j = \{[a_{f,j},a_{f,j+1})\}_j$ とする．
+Let $J_f := \{I_{f,j}\}_j = \{[a_{f,j},a_{f,j+1})\}_j$ be a set of intervals associated with a piecewise expanding map $f$．
 
 \begin{lemma}\label{lem: expandingmap}\mbox{}\par 
-2つの区分拡大写像 $f, g$ を考える．$g\circ f$ の相空間を $J_f$ の要素の部分区間になっているような有限個の区間の集まりに分割して，各区間上で $g\circ f$ が単調な $C^2$ 写像となっているようにできる． 
+Let $f, g$ be piecewise expanding maps. The phase space of $g\circ f$ can be decomposed into subintervals of the elements of $J_f$ such that $g\circ f$ is monotone and $C^2$ in each of the subintervals.  
 \end{lemma}
 \begin{proof}\mbox{}\par
-$f(I_{f,j})\subset \cup_{k\in K}I_{g,j'}$ をみたすような最小の $K$ を考える．
-$I_{f,j}$ 上で $f(x) = a_{g,\min{K}+k'}$を満たす点を $b_{j,k'} \ (1 \le k' \le |K|-1)$ とする．$I_{f,j}$ での $f$ の単調性より，このような $b_{j,k'}$ は一意に定まる．$a_{f,j} = b_{j,0} < b_{j,1} < \cdots < b_{j,|K|} = a_{f,j+1}$ を満たすような有限列を考える．$L_{j,p} := [b_{j,p},b_{j,p+1})$ とすると，この区間において $f \circ g$ は単調な $C^2$ 写像の合成であるから，単調な $C^2$ 写像である．
+Let $K$ be a minimal set which satisfies $f(I_{f,j})\subset \cup_{k\in K}I_{g,k}$. Since $f$ is monotone on $I_{f,j}$, 
+\begin{equation}
+    f(x) = a_{g,\min{K}+k'} \label{eq: eqnedge}
+\end{equation}
+have unique solution in $I_{f,j}$. Let $b_{j,k'} \ (1 \le k' \le |K|-1)$ be such solutions. 
+Consider a finite sequence $a_{f,j} = b_{j,0} < b_{j,1} < \cdots < b_{j,|K|} = a_{f,j+1}$ and let $L_{j,p} := [b_{j,p},b_{j,p+1})$. 
+$f, g$ are monotone $C^2$ maps on each $L_{j,p}$, so its composition $f \circ g$ is. 
 \end{proof}
-$f^n$ が区分拡大写像であると仮定する．補題 \ref{lem: expandingmap} より，$f^{n+1}$ の相空間を有限個の区間の集まりに分割して，各区間上で単調な $C^2$ 写像となるようにできる．また，
+Suppose $f^n$ be a piecewise expanding map. The Lemma.~\ref{lem: expandingmap} tells us that the phase space of $f^{n+1}$ can be decomposed into intevals in each of which $f^{n+1}$ is monotone and $C^2$. 
+Also, 
 \begin{equation}
     |(f^{(n+1)m})'| \ge c^{n+1} >1
 \end{equation}
-がなりたつ．したがって $f^{n+1}$ は区分拡大写像である．帰納的に区分拡大写像の有限回の合成が区分拡大写像であることがいえる．
+holds. Therefore, $f^{n+1}$ is a piecewise expanding map. The proposition follows by induction. 
+\hruleskip
 
+\subsection{2.19.}
+\begin{align}
+    &f_2 \circ \Phi = 1-2\sin^2{\frac{\pi x}{2}} = \cos{\pi x} \nonumber \\
+    &\Phi \circ g = \sin{\frac{\pi}{2}\left(1-2|x|\right)} = \sin\left({\frac{\pi}{2}-\pi |x|}\right) =\cos{\pi |x|} =\cos{\pi x} \nonumber \\
+    &\therefore  f_2 \circ \Phi = \Phi \circ g
+\end{align}
+
+\hruleskip
+
+\subsection{2.21.}
+\begin{equation}
+    \mathcal{S}^{-1}({\bf x})_j = x_{j-1}
+\end{equation}
+
+\hruleskip
+
+\subsection{2.22.}
+Let $\ \bar{} \ $ denotes a periodic part of a dyadic representation.  
+
+If a number $x$ has a finite dyadic representation, it give rise to two representations as follows: 
+\begin{align}
+    x & = 0.a_1a_2a_3\cdots a_m 1 \bar{0} \nonumber \\
+      & = 0.a_1a_2a_3\cdots a_m 0 \bar{1}. 
+\end{align}
+Thus its dyadic representation is not unique. 
+
+Suppose that a number $x$, which admits no finite dyadic representation, have two different dyadic representation: 
+\begin{align}
+    x_a & = 0.a_1a_2a_3\cdots \nonumber \\
+    x_b  & = 0.b_1b_2b_3\cdots  
+\end{align}
+Let $n$ be minumum $i$ that satisfies $a_i \neq b_i$. We can assume $a_n = 1, b_n = 0$ w.l.o.g. This means $x_a \ge x_b$ and the equality holds iff $a_{n'}=0, b_{n'} = 1 \ (n' \ge n+1)$. This contradicts our assumption that $x$ admits no finite dyadic representation. Thus such number has a unique dyadic representation. 
+
+Therefore, the set of numbers of nonunique dyadic representation coincides with that of finite dyadic representation. The number of finite dyadic representation is rational, since it is a sum of rationals. Thus the set of numbers of nonunique dyadic representation is countable, since it is a subset of $\mathbb{Q}$. 
+\hruleskip
+
+\subsection{2.23.}
+
+Let $x_*$ be a 32 bit (approximated) representation of $x\in [0,1)$. The inteval map act as a unilateral shift in the representation. Hence, the bits are moved to the left in order, during which the leftmost ones are discarded. When the map is applied 32 times, the least significant bit of $x_*$ is discarded at last, then bits of zeros remain. This is apparently the fixed point. 
+
+The same applies to the case of 64 bit representation. 
+\hruleskip
+
+\subsection{2.24.}
 
 \end{document}

@@ -41,7 +41,7 @@ Let $t=0$, then we obtain
 \begin{equation}
     {\rm D}_x{\bf \Phi}\cdot {\bf X}({\bm x}) = {\bf Y}({\bf \Phi}({\bm x})), \label{diffeo25}
 \end{equation}
-since ${\varphi}_0, {\psi}_0$ are identity map. 
+since ${\varphi}_0, {\psi}_0$ are identity maps. 
 \vskip 1.0em
 
 ($\Leftarrow$) Consider a diffeomorphism ${\bf \Phi}$ which satisfies Eq.~(\ref{diffeo25}). Let ${\bm y}(t) = {\bf \Phi}\circ {\varphi}_t ({\bm x})$. Then 
@@ -49,7 +49,7 @@ since ${\varphi}_0, {\psi}_0$ are identity map.
     \dot{\bm y}(t) = D{\bf \Phi}({\varphi}_t({\bm x})){\bf X}({\varphi}_t({\bm x})) &= {\bf Y}\circ {\bf \Phi} \circ {\varphi}_t ({\bm x}) \quad (\because \ \text{eq.~}(\ref{diffeo25})) \nonumber \\
     &= {\bf Y}({\bm y}(t)). 
 \end{align}
-Thus ${\bm y}(t)$ is a solution of the ODE of vector field ${\bf Y}$ and of initial condition ${\bf \Phi}({\bm x})$. That is, ${\bm y} (t)= {\psi}_t \circ {\bf \Phi}({\bm x})$. 
+Thus ${\bm y}(t)$ is a solution of the ODE of the vector field ${\bf Y}$ and of the initial condition ${\bf \Phi}({\bm x})$. That is, ${\bm y} (t)= {\psi}_t \circ {\bf \Phi}({\bm x})$. 
 
 \hruleskip
 
@@ -137,5 +137,48 @@ The same applies to the case of 64 bit representation.
 \hruleskip
 
 \subsection{2.24.}
+
+Let $I_j := [a_j, a_{j+1}]$. 
+\vskip 1.0em
+
+(well-definedness) Since $f^n(x)$ belongs to $\Omega$ for any $n \in \mathbb{N}$, it is in one of the intervals $\{I_j \}_j$. Thus $\sigma_n$ is uniquely determined. 
+That is, the code is well-defined. 
+\vskip 1.0em
+
+(invertibility) Suppose two different numbers $x_1, x_2 \in \Omega, x_1 < x_2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$. 
+
+Let us show that for any $n \in \mathbb{Z}^+$, $f^n$ is monotone and $C^2$ on $[x_1, x_2]$. The base case ($n=0$) holds by definition. Suppose that $f^k$ is monotone $C^2$ map on $[x_1, x_2]$ and that $f^{k+1}$ fails to have such regularity on the interval. $f^{k+1}$ lacks such regularity only when $f^k(x_1)$ and $f^k(x_2)$ belong to different intervals $I_l, I_{l'}, l\neq l'$. This violates the assumption that ${\bm \sigma}_1 =  {\bm \sigma}_2$. Thus $f^{k+1}$ is monotone $C^2$ map on $[x_1, x_2]$. Hence the proposition follows by induction. 
+
+Since $f$ is piecewise expanding map, there exists $m>0$ and $c>1$ such that $| (f^{m})' |>c$. Let $p \in \mathbb{N}$ satisfy $(x_2-x_1)c^p>1$. 
+Using the mean value theorem and the monotonicity of $f^{mp}$, we obtain $|f^{mp}(x_2)-f^{mp}(x_1)|>1$. This contradicts the fact that $f^{mp}$ is a piecewise expanding map.
+
+The argument above shows that the coding is injective. The coding is defined so that it is surjective. Hence the coding is invertible.  
+\vskip 1.0em
+
+(conjugacy) Let $\Phi$ be the coding map, i.e., $\Phi (x) = {\bm \sigma}$ and $\mathcal{A}:=\{0,1,2,\cdots,k-1\}$. Let us introduce 
+\begin{equation}
+    \Omega_s:=\left\{\mathbf{x} \in \mathcal{A}^{\mathbb{Z}^+} \mid M_{x_j, x_{j+1}}=1, \quad \forall j \in \mathbb{Z}^+\right\}, 
+\end{equation}
+where the transition matrix $M$ is defined as 
+\begin{equation}
+    M_{ij} = \left\{ \begin{array}{cc}
+        1 & \text{if} \quad I_j \subset f(I_i) \\
+        0 &  \text{otherwise} 
+    \end{array} \right. .
+\end{equation}
+
+Firstly, let us show $\Phi([0,1))=\Omega_s$. 
+\if0
+Let us define a function $J$ as: 
+\begin{equation}
+    J(x) = I_j \ \text{if} \ x\in I_j. 
+\end{equation}
+\fi
+If ${\bm \sigma}\in\Phi([0,1))$,  $I_{\sigma_{j+1}} \subset f(I_{\sigma_j})$ for all $j\in\mathbb{Z}^+$ due to the Markov property. Hence $\Phi([0,1))\subset \Omega_s$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1))$. This implies that there exists a minimum $q$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. $f(I_{\sigma_{q-1}}) \cap f^{q}(I_{\sigma_0}) \neq \emptyset$ follows from $I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0}) \neq \emptyset$ and $f(A\cap B) \subseteq f(A) \cap f(B)$. This leads to $I_{\sigma_q} \cap f^q(I_{\sigma_0}) \neq \emptyset$ due to the Markov property. This contradicts the assumption and thus we obtain $\Phi([0,1))\supset \Omega_s$. 
+
+Thus the coding provides a conjugacy between f and the unilateral shift of finite type defined using $M$.  
+\hruleskip
+
+\subsection{2.26.}
 
 \end{document}

@@ -168,18 +168,14 @@ where the transition matrix $M$ is defined as
 \end{equation}
 
 Let us show $\Phi([0,1))=\Omega_s$. 
-\if0
-Let us define a function $J$ as: 
-\begin{equation}
-    J(x) = I_j \ \text{if} \ x\in I_j. 
-\end{equation}
-\fi
-If ${\bm \sigma}\in\Phi([0,1))$,  $I_{\sigma_{j+1}} \subset f(I_{\sigma_j})$ for all $j\in\mathbb{Z}^+$ due to the Markov property. Hence $\Phi([0,1))\subset \Omega_s$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1))$. This implies that there exists a minimum $q$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. (to be done later)
-\if0
-$f(I_{\sigma_{q-1}}) \cap f^{q}(I_{\sigma_0}) \neq \emptyset$ follows from $I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0}) \neq \emptyset$ and $f(A\cap B) \subseteq f(A) \cap f(B)$. This leads to $I_{\sigma_q} \cap f^q(I_{\sigma_0}) \neq \emptyset$ due to the Markov property. This contradicts the assumption and thus we obtain $\Phi([0,1))\supset \Omega_s$. 
+If ${\bm \sigma}\in\Phi([0,1))$,  $I_{\sigma_{j+1}} \subset f(I_{\sigma_j})$ for all $j\in\mathbb{Z}^+$ due to the Markov property. Hence $\Phi([0,1))\subset \Omega_s$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1))$. This implies that there exists a minimum $q$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. 
+$f^r(I_j) \ (\forall r \in \mathbb{Z}^+)$ can be written as $\cup_{j' \in \mathcal B}I_{j'}$ for some $\mathcal{B}\subset \mathcal{A}$ due to the Markov property. Hence $I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0}) = I_{\sigma_{q-1}}$ since it is not empty. Then we obtain
+\begin{align}
+    I_{\sigma_{q}} \subset f(I_{\sigma_{q-1}}) = f(I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0})) \subseteq f(I_{\sigma_{q-1}}) \cap f^{q}(I_{\sigma_0}). 
+\end{align}
+Thus $I_{\sigma_q}$ is a subset of $f^{q}(I_{\sigma_0})$ and then $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = I_{\sigma_q} \neq \emptyset$. This contradicts the assumption and thus we obtain $\Phi([0,1))\supset \Omega_s$. 
 
 Thus the coding provides a conjugacy between $f$ and the unilateral shift of finite type defined using $M$.  
-\fi
 \hruleskip
 
 \subsection{2.26.}

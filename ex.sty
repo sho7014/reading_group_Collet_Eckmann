@@ -23,12 +23,15 @@
 \ProcessKeyvalOptions*
 
 \title{Chapter \title@chap}
+\author{Sho Shirasaka}
 \date{\today}
 
 \makeatletter
 \def\@maketitle{
-\centering{\Large \textbf{\@title} \par}
-\par\vskip 1.5em
+\centering{\Large \textbf{\@title}}
+\vskip 1.5em
+\centering{\@author, \@date}
+\par \vskip 1.5em
 }
 \makeatother
 

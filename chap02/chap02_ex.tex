@@ -138,7 +138,7 @@ The same applies to the case of 64 bit representation.
 
 \subsection{2.24.}
 
-Let $I_j := [a_j, a_{j+1}]$. 
+Let $I_j := [a_j, a_{j+1})$. 
 \vskip 1.0em
 
 (well-definedness) Since $f^n(x)$ belongs to $\Omega$ for any $n \in \mathbb{N}$, it is in one of the intervals $\{I_j \}_j$. Thus $\sigma_n$ is uniquely determined. 
@@ -179,5 +179,33 @@ Thus the coding provides a conjugacy between $f$ and the unilateral shift of fin
 \hruleskip
 
 \subsection{2.26.}
+The inverse of the baker's map is given as 
+\begin{equation}
+    f^{-1}(x,y) = \left\{ \begin{array}{lcc}
+        (x/2,2y) & \text{if} & y < 1/2 \\
+        ((1+x)/2,2y-1) & \text{if} & y \ge 1/2
+    \end{array}\right. .
+\end{equation}
+\vskip 1.0em
+
+Let $\Phi: [0,1)^2\to \{0,1\}^\mathbb{Z}$ be the coding map. Suppose two points ${\bm x}_1, {\bm x}_2 \in [0,1)^2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$, where ${\bm \sigma}_i:=\Phi({\bm x}_i)$. Let ${\bm \sigma}^{\ge}$ (resp. ${\bm \sigma}^{\le}$) be a subcode of ${\bm \sigma}$ of positive (resp. negative) indices, i.e., ${\bm \sigma}^{\ge}:= (\sigma_i)_{i\ge 0}$ (resp. ${\bm \sigma}^{\le}:= (\sigma_i)_{i\le 0}$). We call it a positive semi-infinite (resp. negative) subcode. 
+
+Two points which share their $y$-component have the same positive semi-infinite subcode since the $y$-component does not affect the positive time-evolution of the $x$-component. Let ${\bm x}_{2*}:= (x_{2,1},x_{1,2})$, then ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_2 = {\bm \sigma}^{\ge}_{2*}$ follows. ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_{2*}$ requires $x_{1,1}=x_{2,1}$ because $g(x):=f(x,x_{1,2})$ is a piecewise expanding map. Similarly, we can show $x_{1,2}=x_{2,2}$ by considering the negative semi-infinite subcode. Thus $\Phi$ is injective. 
+\vskip 1.0em
+
+Let $\Omega_s$ denote the phase space of the full bilateral shift over the two symbols. Let us show $\Phi([0,1)^2)=\Omega_s$. 
+Obviously $\Phi([0,1)^2) \subset \Omega_s$ since the shift is full. 
+Let $I_0 = [0,1/2)\times [0,1), I_1 = [1/2,1)\times [0,1)$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1)^2)$. This implies that there exists $q\in\mathbb{Z}$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. Apparently ${\bm \sigma} \notin \Phi([0,1)^2)$ holds if and only if $\mathcal{S}^{r}({\bm \sigma}) \notin \Phi([0,1)^2)$ for all $r\in \mathbb{Z}$. We take an $r$ which satisfies $r<q$ and denote $q':=q-r$. Then $I_{\mathcal{S}^{r}({\bm \sigma})_{q'}} \cap f^{q'}(I_{\mathcal{S}^{r}({\bm \sigma})_0}) = \emptyset$. This cannot hold because the positive time-evolution of the $x$-component by the baker's map is given by a piecewise expanding Markov map (see the solution of Exercise 2.24) of its transition matrix $M_{i,j}=1, \forall i,j\in \{0, 1\}$. Thus $\Phi([0,1)^2)=\Omega_s$, namely, $\Phi$ is bijective. Hence the coding $\Phi$ provides a desired conjugacy.  
+\hruleskip
+
+\subsection{2.28.}
+Let us denote $f(x,y) = 2x+y \ ({\rm mod} 1), g(x,y) = x+y \ ({\rm mod} 1)$. 
+We obtain $f_x=2,f_y=1,g_x=1,g_y=1$ on $(0,1)^2$. The derivatives coincide on the gluing boundaries $\{0\}\times [0,1), \{1\}\times [0,1)$ and $[0,1)\times\{0\}, [0,1)\times\{1\}$ and they are continuous. Thus the cat map is $C^1$. The second or higher partial derivatives are all zeros, so they coincide on the gluing boundaries and are continuous.  Thus the cat map is $C^\infty$.
+
+Let us denote $p(x,y) = x-y \ ({\rm mod} 1), q(x,y) = -x+2y \ ({\rm mod} 1)$. 
+We obtain $p_x=1,p_y=-1,q_x=-1,q_y=2$ on $(0,1)^2$. The derivatives coincide on the gluing boundaries $\{0\}\times [0,1), \{1\}\times [0,1)$ and $[0,1)\times\{0\}, [0,1)\times\{1\}$ and they are continuous. Thus the inverse map is $C^1$. The second or higher partial derivatives are all zeros, so they coincide on the gluing boundaries and are continuous.  Thus the inverse map is $C^\infty$.
+\hruleskip
+
+\subsection{2.30.}
 
 \end{document}

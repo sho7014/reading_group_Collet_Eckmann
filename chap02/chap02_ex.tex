@@ -195,17 +195,49 @@ Two points which share their $y$-component have the same positive semi-infinite 
 
 Let $\Omega_s$ denote the phase space of the full bilateral shift over the two symbols. Let us show $\Phi([0,1)^2)=\Omega_s$. 
 Obviously $\Phi([0,1)^2) \subset \Omega_s$ since the shift is full. 
-Let $I_0 = [0,1/2)\times [0,1), I_1 = [1/2,1)\times [0,1)$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1)^2)$. This implies that there exists $q\in\mathbb{Z}$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. Apparently ${\bm \sigma} \notin \Phi([0,1)^2)$ holds if and only if $\mathcal{S}^{r}({\bm \sigma}) \notin \Phi([0,1)^2)$ for all $r\in \mathbb{Z}$. We take an $r$ which satisfies $r<q$ and denote $q':=q-r$. Then $I_{\mathcal{S}^{r}({\bm \sigma})_{q'}} \cap f^{q'}(I_{\mathcal{S}^{r}({\bm \sigma})_0}) = \emptyset$. This cannot hold because the positive time-evolution of the $x$-component by the baker's map is given by a piecewise expanding Markov map (see the solution of Exercise 2.24) of its transition matrix $M_{i,j}=1, \forall i,j\in \{0, 1\}$. Thus $\Phi([0,1)^2)=\Omega_s$, namely, $\Phi$ is bijective. Hence the coding $\Phi$ provides a desired conjugacy.  
+Let $I_0 = [0,1/2)\times [0,1), I_1 = [1/2,1)\times [0,1)$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1)^2)$. This implies that there exists $q\in\mathbb{Z}$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. Apparently ${\bm \sigma} \notin \Phi([0,1)^2)$ holds if and only if $\mathcal{S}^{r}({\bm \sigma}) \notin \Phi([0,1)^2)$ for all $r\in \mathbb{Z}$. We take an $r$ which satisfies $r<q$ and denote $q':=q-r$. Then $I_{\mathcal{S}^{r}({\bm \sigma})_{q'}} \cap f^{q'}(I_{\mathcal{S}^{r}({\bm \sigma})_0}) = \emptyset$. This cannot hold because the positive time-evolution of the $x$-component by the baker's map is given by a piecewise expanding Markov map (see the solution of Exercise 2.24) of its associated transition matrix $M_{i,j}=1, \forall i,j\in \{0, 1\}$. Thus $\Phi([0,1)^2)=\Omega_s$, namely, $\Phi$ is bijective. Hence the coding $\Phi$ provides a desired conjugacy.  
 \hruleskip
 
 \subsection{2.28.}
-Let us denote $f(x,y) = 2x+y \ ({\rm mod} 1), g(x,y) = x+y \ ({\rm mod} 1)$. 
-We obtain $f_x=2,f_y=1,g_x=1,g_y=1$ on $(0,1)^2$. The derivatives coincide on the gluing boundaries $\{0\}\times [0,1), \{1\}\times [0,1)$ and $[0,1)\times\{0\}, [0,1)\times\{1\}$ and they are continuous. Thus the cat map is $C^1$. The second or higher partial derivatives are all zeros, so they coincide on the gluing boundaries and are continuous.  Thus the cat map is $C^\infty$.
+Let us denote $f(x,y) = 2x+y \ ({\rm mod} \ 1), g(x,y) = x+y \ ({\rm mod} \ 1)$. Let $l_1 = \{(x,y) \mid 2x+y=1\}, l_2 = \{(x,y) \mid 2x+y=2\}$ and $l_3 = \{(x,y) \mid x+y=1\}$. 
+$f$ and $g$ are continuous on $(0,1)^2\setminus (l_1\cup l_2 \cup l_3)$. The one-sided limits from below and above on the gluing boundaries: a pair of $\{0\}\times [0,1), \{1\}\times [0,1)$, a pair of $[0,1)\times\{0\}, [0,1)\times\{1\}$, $l_1, l_2$ and $l_3$, coincide by identifying $0$ and $1$. Thus the cap map is continuous. 
+We obtain $f_x=2,f_y=1,g_x=1,g_y=1$ on $(0,1)^2$. The one-sided derivatives coincide on the gluing boundaries and they are continuous. Thus the cat map is $C^1$. The second or higher partial derivatives are all zeros, so they coincide on the gluing boundaries and are continuous.  Thus the cat map is $C^\infty$.
 
-Let us denote $p(x,y) = x-y \ ({\rm mod} 1), q(x,y) = -x+2y \ ({\rm mod} 1)$. 
-We obtain $p_x=1,p_y=-1,q_x=-1,q_y=2$ on $(0,1)^2$. The derivatives coincide on the gluing boundaries $\{0\}\times [0,1), \{1\}\times [0,1)$ and $[0,1)\times\{0\}, [0,1)\times\{1\}$ and they are continuous. Thus the inverse map is $C^1$. The second or higher partial derivatives are all zeros, so they coincide on the gluing boundaries and are continuous.  Thus the inverse map is $C^\infty$.
+Almost the same argument leads to the $C^\infty$ regularity of the inverse map.
 \hruleskip
 
 \subsection{2.30.}
+Let us denote $g(x,y) = 2x-y+a\sin{(2\pi x)} \ ({\rm mod} \ 1), h(x,y) = x$. Let $l = \{(x,y) \mid 2x-y+a\sin(2\pi x) \in \mathbb{Z}\}$. $g, h$ are continuous on $(0,1)^2\setminus l$. 
+The following equations
+\begin{align}
+    & g(0+,y) = -y \ ({\rm mod} \ 1) = 2 - y \ ({\rm mod} \ 1) = g(1-,y) \nonumber \\
+    & g(x,0+) = 2x+a\sin{(2\pi x)} \ ({\rm mod} \ 1)= 2x-1+a\sin{(2\pi x)}\ ({\rm mod} \ 1) = g(x,1-) \nonumber
+\end{align}
+say that $g$ and $h$ are continuous on $\{0\}\times [0,1)$ and $[0,1)\times\{0\}$. They are also continuous on $l$ since $0$ and $1$ are identified. Thus the standard map is continuous. 
+We obtain $g_x = 2+2a\pi\cos{(2\pi x)}, g_y = -1, h_x = 1, h_y =0$ on $(0,1)^2$. They are all periodic of period $1$ and hence continuous on $\{0\}\times [0,1)$ and $[0,1)\times\{0\}$. Thus it is $C^1$. 
+The higher partial derivatives are also $1$-peridic continuous function. Therefore $C^\infty$ regularity follows. 
+\vskip 1.0em
+
+The inverse map is given as
+\begin{equation}
+    f^{-1}(x,y) =\left(\begin{array}{c}
+        y \\
+        -x +2y + a\sin(2\pi y) \ ({\rm mod}\ 1)
+    \end{array} \right) .
+\end{equation}
+Almost the same argument leads to the $C^\infty$ regularity of the inverse map.
+\hruleskip
+
+\subsection{2.32.}
+The inverse map is given as
+\begin{equation}
+    f^{-1}(x,y) =\left(\begin{array}{c}
+        y/b \\
+        x -1 + ay^2/b^2
+    \end{array} \right) .
+\end{equation}
+\hruleskip
+
+\subsection{2.38.}
 
 \end{document}

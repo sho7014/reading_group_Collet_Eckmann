@@ -141,41 +141,51 @@ The same applies to the case of 64 bit representation.
 Let $I_j := [a_j, a_{j+1})$. 
 \vskip 1.0em
 
-(well-definedness) Since $f^n(x)$ belongs to $\Omega$ for any $n \in \mathbb{N}$, it is in one of the intervals $\{I_j \}_j$. Thus $\sigma_n$ is uniquely determined. 
-That is, the code is well-defined. 
-\vskip 1.0em
-
-(invertibility) Suppose two different numbers $x_1, x_2 \in \Omega, x_1 < x_2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$. 
+(injectivity) Suppose two different numbers $x_1, x_2 \in \Omega, x_1 < x_2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$. 
 
 Let us show that for any $n \in \mathbb{Z}^+$, $f^n$ is monotone and $C^2$ on $[x_1, x_2]$. The base case ($n=0$) holds by definition. Suppose that $f^k$ is monotone $C^2$ map on $[x_1, x_2]$ and that $f^{k+1}$ fails to have such regularity on the interval. $f^{k+1}$ lacks such regularity only when $f^k(x_1)$ and $f^k(x_2)$ belong to different intervals $I_l, I_{l'}, l\neq l'$. This violates the assumption that ${\bm \sigma}_1 =  {\bm \sigma}_2$. Thus $f^{k+1}$ is monotone $C^2$ map on $[x_1, x_2]$. Hence the proposition follows by induction. 
 
 Since $f$ is piecewise expanding map, there exists $m>0$ and $c>1$ such that $| (f^{m})' |>c$. Let $p \in \mathbb{N}$ satisfy $(x_2-x_1)c^p>1$. 
 Using the mean value theorem and the monotonicity of $f^{mp}$, we obtain $|f^{mp}(x_2)-f^{mp}(x_1)|>1$. This contradicts the fact that $f^{mp}$ is a piecewise expanding map.
 
-The argument above shows that the coding is injective. The coding is defined so that it is surjective. Hence the coding is invertible.  
+The argument above shows that the coding is injective.  
 \vskip 1.0em
 
-(conjugacy) Let $\Phi$ be the coding map, i.e., $\Phi (x) = {\bm \sigma}$ and $\mathcal{A}:=\{0,1,2,\cdots,k-1\}$. Let us introduce 
-\begin{equation}
-    \Omega_s:=\left\{\mathbf{x} \in \mathcal{A}^{\mathbb{Z}^+} \mid M_{x_j, x_{j+1}}=1, \quad \forall j \in \mathbb{Z}^+\right\}, 
-\end{equation}
-where the transition matrix $M$ is defined as 
-\begin{equation}
-    M_{ij} = \left\{ \begin{array}{cc}
+(well-definedness) Let $\Phi_{\mathcal R} =  (\Omega,\Omega_s,R)$ be the coding \href{https://proofwiki.org/wiki/Definition:Relation}{relation}, where 
+\begin{align}
+    &\Omega_s:=\left\{\mathbf{x} \in \mathcal{A}^{\mathbb{Z}^+} \mid M_{x_j, x_{j+1}}=1, \quad \forall j \in \mathbb{Z}^+\right\}, \quad \mathcal{A}:=\{0,1,2,\cdots,k-1\}, \\
+    &M_{ij} = \left\{ \begin{array}{cc}
         1 & \text{if} \quad I_j \subset f(I_i) \\
         0 &  \text{otherwise} 
-    \end{array} \right. .
+    \end{array} \right. ,
+\end{align}
+and 
+\begin{equation}
+    R = \{(x,{\bm \sigma}) \mid {\bm \sigma} \in \Omega_s \ \text{and} \ f^n(x) \in I_{{\bm \sigma}_n} \ \text{for all} \ n \in \mathbb{Z}^+\}.
 \end{equation}
+\begin{lemma}\label{lem: uniquecoding}\mbox{}\par 
+Let $\bar{\Omega}:= \{ x\in \Omega \mid f^n(x) \notin \{a_j\}_{j=0}^{k-1} \ \text{for all} \ n\in \mathbb{Z}^+ \}$, then the \href{https://proofwiki.org/wiki/Definition:Restriction}{restriction} $\Phi_{\mathcal R} |_{\bar{\Omega}}$ is many-to-one. 
+\end{lemma}
+\begin{proof}\mbox{}\par
+Let as assume $\Phi_{\mathcal R} |_{\bar{\Omega}}$ is not many-to-one, i.e., there exist $x\in \bar{\Omega}$ and ${\bm \sigma}_1, {\bm \sigma}_2 \in \Omega_s, {\bm \sigma}_1 \neq {\bm \sigma}_2 $ such that $(x,{\bm \sigma}_1), (x,{\bm \sigma}_2) \in R$. This implies there exists $p \in \mathbb{Z}^+$ such that $f^p(x) \in I_{{\sigma_1}_p}, f^p(x) \in I_{{\sigma_2}_p}, {\sigma_1}_p \neq {\sigma_2}_p$ and $f^p(x) \notin \{a_j\}_{j=0}^{k-1}$. This means that $f^p(x)$ is not many-to-one. This contradicts the fact that $f$ is a function. Thus $\Phi_{\mathcal R} |_{\bar{\Omega}}$ is many-to-one.   
+\end{proof}
+Let $\mathcal{B}_n = \{x\in \Omega \mid f^n(x) \in \{a_j\}_{j=0}^{k-1}\}$. Obviously $|\mathcal{B}_n|\le (k-1)^{n+1}$. Hence $\Omega \setminus \bar{\Omega} = \cup_{i=0}^\infty{\mathcal{B}_n}$ is countable since a countable union of countable sets is countable. 
 
-Let us show $\Phi([0,1))=\Omega_s$. 
-If ${\bm \sigma}\in\Phi([0,1))$,  $I_{\sigma_{j+1}} \subset f(I_{\sigma_j})$ for all $j\in\mathbb{Z}^+$ due to the Markov property. Hence $\Phi([0,1))\subset \Omega_s$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1))$. This implies that there exists a minimum $q$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. 
+Thus the coding relation $\Phi_{\mathcal R}$ gives rise to a well-defined injective function except for a countable number of exceptional points $\Omega \setminus \bar{\Omega}$. 
+\vskip 1.0em
+
+(conjugacy) Let us define $\bar{\Omega}_s:= \{{\bm \sigma} \in \Omega_s \mid (x, {\bm \sigma})\notin R \ \text{for all} \ x \in \Omega \setminus \bar{\Omega} \}$. $\Omega_s \setminus \bar{\Omega}_s$ is countable since $x \in \mathcal{B}_n$ gives rise to at most two ordered pairs in $R$. 
+Let us show $\Phi:= \Phi_{\mathcal R} |_{\bar{\Omega}\times \bar{\Omega}_s}$ is invertible mapping. The injectivity is already given. 
+
+If ${\bm \sigma}\in\Phi(\bar{\Omega})$,  $I_{\sigma_{j+1}} \subset f(I_{\sigma_j})$ for all $j\in\mathbb{Z}^+$ due to the Markov property. Hence $\Phi(\bar{\Omega})\subset \Omega_s$. Further we can show $\Phi(\bar{\Omega})\subset \bar{\Omega}_s$ since $\bar{\Omega} \cap (\Omega \setminus \bar{\Omega}) = \emptyset$. 
+Suppose there exists ${\bm \sigma}\in \bar{\Omega}_s$ such that ${\bm \sigma} \notin \Phi(\bar{\Omega})$. This implies that there exists a minimum $q$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. 
 $f^r(I_j) \ (\forall r \in \mathbb{Z}^+)$ can be written as $\cup_{j' \in \mathcal B}I_{j'}$ for some $\mathcal{B}\subset \mathcal{A}$ due to the Markov property. Hence $I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0}) = I_{\sigma_{q-1}}$ since it is not empty. Then we obtain
 \begin{align}
     I_{\sigma_{q}} \subset f(I_{\sigma_{q-1}}) = f(I_{\sigma_{q-1}} \cap f^{q-1}(I_{\sigma_0})) \subseteq f(I_{\sigma_{q-1}}) \cap f^{q}(I_{\sigma_0}). 
 \end{align}
-Thus $I_{\sigma_q}$ is a subset of $f^{q}(I_{\sigma_0})$ and then $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = I_{\sigma_q} \neq \emptyset$. This contradicts the assumption and thus we obtain $\Phi([0,1))\supset \Omega_s$. 
+Thus $I_{\sigma_q}$ is a subset of $f^{q}(I_{\sigma_0})$ and then $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = I_{\sigma_q} \neq \emptyset$. This contradicts the assumption and thus we obtain $\Phi(\bar{\Omega})\supset \bar{\Omega}_s$. Thus $\Phi$ is surjective. 
 
-Thus the coding provides a conjugacy between $f$ and the unilateral shift of finite type defined using $M$.  
+Thus the coding $\Phi$, defined except for a countable number of exceptional points $(\Omega \setminus \bar{\Omega}) \times (\Omega_s \setminus \bar{\Omega}_s)$, provides a conjugacy between $f$ and the unilateral shift of finite type defined using $M$.  
 \hruleskip
 
 \subsection{2.26.}
@@ -188,14 +198,17 @@ The inverse of the baker's map is given as
 \end{equation}
 \vskip 1.0em
 
-Let $\Phi: [0,1)^2\to \{0,1\}^\mathbb{Z}$ be the coding map. Suppose two points ${\bm x}_1, {\bm x}_2 \in [0,1)^2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$, where ${\bm \sigma}_i:=\Phi({\bm x}_i)$. Let ${\bm \sigma}^{\ge}$ (resp. ${\bm \sigma}^{\le}$) be a subcode of ${\bm \sigma}$ of positive (resp. negative) indices, i.e., ${\bm \sigma}^{\ge}:= (\sigma_i)_{i\ge 0}$ (resp. ${\bm \sigma}^{\le}:= (\sigma_i)_{i\le 0}$). We call it a positive semi-infinite (resp. negative) subcode. 
+Suppose two points ${\bm x}_1, {\bm x}_2 \in [0,1)^2$ share the same code, i.e., ${\bm \sigma}_1 =  {\bm \sigma}_2 \ (= {\bm \sigma})$, where ${\bm \sigma}_i$ is associated with ${\bm x}_i$. Let ${\bm \sigma}^{\ge}$ (resp. ${\bm \sigma}^{\le}$) be a subcode of ${\bm \sigma}$ of positive (resp. negative) indices, i.e., ${\bm \sigma}^{\ge}:= (\sigma_i)_{i\ge 0}$ (resp. ${\bm \sigma}^{\le}:= (\sigma_i)_{i\le 0}$). We call it a positive semi-infinite (resp. negative) subcode. 
 
-Two points which share their $y$-component have the same positive semi-infinite subcode since the $y$-component does not affect the positive time-evolution of the $x$-component. Let ${\bm x}_{2*}:= (x_{2,1},x_{1,2})$, then ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_2 = {\bm \sigma}^{\ge}_{2*}$ follows. ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_{2*}$ requires $x_{1,1}=x_{2,1}$ because $g(x):=f(x,x_{1,2})$ is a piecewise expanding map. Similarly, we can show $x_{1,2}=x_{2,2}$ by considering the negative semi-infinite subcode. Thus $\Phi$ is injective. 
+Two points which share their $y$-component have the same positive semi-infinite subcode since the $y$-component does not affect the positive time-evolution of the $x$-component. Let ${\bm x}_{2*}:= (x_{2,1},x_{1,2})$, then ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_2 = {\bm \sigma}^{\ge}_{2*}$ follows. ${\bm \sigma}^{\ge}_1 = {\bm \sigma}^{\ge}_{2*}$ requires $x_{1,1}=x_{2,1}$ because $g(x):=f(x,x_{1,2})$ is a piecewise expanding map. Similarly, we can show $x_{1,2}=x_{2,2}$ by considering the negative semi-infinite subcode. Thus the coding is injective. 
 \vskip 1.0em
 
-Let $\Omega_s$ denote the phase space of the full bilateral shift over the two symbols. Let us show $\Phi([0,1)^2)=\Omega_s$. 
-Obviously $\Phi([0,1)^2) \subset \Omega_s$ since the shift is full. 
-Let $I_0 = [0,1/2)\times [0,1), I_1 = [1/2,1)\times [0,1)$. Suppose there exists ${\bm \sigma}\in \Omega_s$ such that ${\bm \sigma} \notin \Phi([0,1)^2)$. This implies that there exists $q\in\mathbb{Z}$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. Apparently ${\bm \sigma} \notin \Phi([0,1)^2)$ holds if and only if $\mathcal{S}^{r}({\bm \sigma}) \notin \Phi([0,1)^2)$ for all $r\in \mathbb{Z}$. We take an $r$ which satisfies $r<q$ and denote $q':=q-r$. Then $I_{\mathcal{S}^{r}({\bm \sigma})_{q'}} \cap f^{q'}(I_{\mathcal{S}^{r}({\bm \sigma})_0}) = \emptyset$. This cannot hold because the positive time-evolution of the $x$-component by the baker's map is given by a piecewise expanding Markov map (see the solution of Exercise 2.24) of its associated transition matrix $M_{i,j}=1, \forall i,j\in \{0, 1\}$. Thus $\Phi([0,1)^2)=\Omega_s$, namely, $\Phi$ is bijective. Hence the coding $\Phi$ provides a desired conjugacy.  
+Let $\Omega_s$ denote the phase space of the full bilateral shift over the two symbols and $\Phi_{\mathcal R} =  (\Omega,\Omega_s,R)$ be the coding relation as in the solution of the previous exercise (we must replace $\mathbb{Z}^+$ with $\mathbb{Z}$). It can be easily seen that $\Phi_{\mathcal R}$ gives rise to a well-defined injective function except for a countable number of exceptional points $\mathbb{Q}_{\rm dr}^2$, where $\mathbb{Q}_{\rm dr}$ is a set of dyadic rationals. Let us introduce $\bar{\Omega}:= \Omega \setminus \mathbb{Q}_{\rm dr}^2, \bar{\Omega}_s$ and $\Phi$ as in the last exercise. 
+\vskip 1.0em
+
+Let us show $\Phi(\bar{\Omega})=\bar{\Omega}_s$. 
+Obviously $\Phi(\bar{\Omega}) \subset \bar{\Omega}_s$ since the shift is full. 
+Let $I_0 = [0,1/2)\times [0,1), I_1 = [1/2,1)\times [0,1)$. Suppose there exists ${\bm \sigma}\in \bar{\Omega}_s$ such that ${\bm \sigma} \notin \Phi(\bar{\Omega})$. This implies that there exists $q\in\mathbb{Z}$ such that $I_{\sigma_q} \cap f^q(I_{\sigma_0}) = \emptyset$. Apparently ${\bm \sigma} \notin \Phi(\bar{\Omega})$ holds if and only if $\mathcal{S}^{r}({\bm \sigma}) \notin \Phi(\bar{\Omega})$ for all $r\in \mathbb{Z}$. We take an $r$ which satisfies $r<q$ and denote $q':=q-r$. Then $I_{\mathcal{S}^{r}({\bm \sigma})_{q'}} \cap f^{q'}(I_{\mathcal{S}^{r}({\bm \sigma})_0}) = \emptyset$. This cannot hold because the positive time-evolution of the $x$-component by the baker's map is given by a piecewise expanding Markov map (see the solution of Exercise 2.24) of its associated transition matrix $M_{i,j}=1, \forall i,j\in \{0, 1\}$. Thus $\Phi(\bar{\Omega})=\bar{\Omega}_s$, namely, $\Phi$ is bijective. Hence the coding $\Phi$ provides a desired conjugacy except on the countable set $\mathbb{Q}_{\rm dr}^2$. 
 \hruleskip
 
 \subsection{2.28.}

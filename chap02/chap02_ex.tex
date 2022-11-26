@@ -290,7 +290,7 @@ By using the orthogonality
 \end{equation}
 we obtain 
 \begin{align}
-    &C\langle \partial_t v_j({\bm x}), e^{i{\bm k}\cdot{\bm x}}  \rangle  = \partial_tu_j({\bm k}), \\
+    &C\langle \partial_t v_j({\bm x}), e^{i{\bm k}\cdot{\bm x}}  \rangle  = \dot{u}_j({\bm k}), \\
     &C\langle \mu (\Delta {\bm v})_j, e^{i{\bm k}\cdot{\bm x}}  \rangle  =-\mu|{\bm k}|^2 u_j({\bm k}), \\
     &C\left\langle \frac{f_j}{\varrho}, e^{i{\bm k}\cdot{\bm x}}  \right\rangle  =\frac{\hat{f}_j({\bm k})}{\varrho}, \\
     &C\langle [({\bm v}\cdot \nabla){\bm v}]_j, e^{i{\bm k}\cdot{\bm x}}  \rangle  = \sum_{m=1}^D ik_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2') = \sum_{n=1}^D \delta_{n,j} \sum_{m=1}^D ik_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2'),\\
@@ -299,6 +299,6 @@ we obtain
 \end{align}
 The desired expression is obtained as 
 \begin{equation}
-    \partial_tu_j({\bm k}) = -\mu|{\bm k}|^2 u_j({\bm k}) - i\sum_{n=1}^D \left(\delta_{n,j} - \frac{k_n k_j}{|{\bm k}|^2} \right) \sum_{m=1}^D k_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2')+\frac{\hat{f}_j({\bm k})}{\varrho}.
+    \dot{u}_j({\bm k}) = -\mu|{\bm k}|^2 u_j({\bm k}) - i\sum_{n=1}^D \left(\delta_{n,j} - \frac{k_n k_j}{|{\bm k}|^2} \right) \sum_{m=1}^D k_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2')+\frac{\hat{f}_j({\bm k})}{\varrho}.
 \end{equation}
 \end{document}

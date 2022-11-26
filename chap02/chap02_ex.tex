@@ -252,5 +252,53 @@ The inverse map is given as
 \hruleskip
 
 \subsection{2.38.}
-
+Let $V = \prod_{j=1}^D[0,L_j), C = 1/\prod_{j=1}^D{L_j}, \mathcal{K} = \{ 2\pi (k_1/L_1, k_2/L_2, \cdots, k_D/L_D) \mid (k_j)_{j=1}^D \in \mathbb{Z}^D\}, u_j({\bm k}):=\hat{v}_j({\bm k})=C \int_V{v_j({\bm x})e^{-i{\bm k}\cdot{\bm x}}\mathbf{d}^D{\bm x}}$. The inverse Fourier transform is 
+\begin{equation}
+    v_j({\bm x})=\sum_{{\bm k}'\in \mathcal{K}}{u_j({\bm k}')e^{i{\bm k}'\cdot{\bm x}}}. \label{invFT}
+\end{equation} 
+By plugging the r.h.s of Eq.~(\ref{invFT}) in each term of the Navier-Stokes equation, we obtain 
+\begin{align}
+    &\partial_t v_j({\bm x}) = \partial_t \sum_{{\bm k}'\in \mathcal{K}}{u_j({\bm k}')e^{i{\bm k}'\cdot{\bm x}}}, \\
+    &\mu (\Delta {\bm v})_j = -\mu \sum_{{\bm k}'\in \mathcal{K}}{|{\bm k}'|^2 u_j({\bm k}')e^{i{\bm k}'\cdot{\bm x}}}, \\
+    &\frac{f_j}{\varrho} = \sum_{{\bm k}'\in \mathcal{K}}{\frac{\hat{f}_j({\bm k}')}{\varrho}e^{i{\bm k}'\cdot{\bm x}}}, \\
+    &[({\bm v}\cdot \nabla){\bm v}]_j = \sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}{u_m({\bm k}_1')e^{i{\bm k}_1'\cdot{\bm x}}}\left(\partial_{m}\sum_{{\bm k}_2'\in \mathcal{K}}{u_j({\bm k}_2')e^{i{\bm k}_2'\cdot{\bm x}}}\right) \nonumber \\
+    & =  \sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} ik_{2,m}' u_m({\bm k}_1')u_j({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}, \label{eq. nsterm1}\\
+    &{\rm div}[({\bm v}\cdot \nabla){\bm v}] = \sum_{n=1}^D\sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} -k_{2,m}'(k_{1,n}'+k_{2,n}') u_m({\bm k}_1')u_n({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}, \nonumber \\
+    &\Delta^{-1}{\rm div}[({\bm v}\cdot \nabla){\bm v}] = \sum_{n=1}^D\sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} \frac{k_{2,m}'(k_{1,n}'+k_{2,n}')}{|{\bm k}_1' + {\bm k}_2'|^2} u_m({\bm k}_1')u_n({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}, \nonumber \\
+    &[\nabla \Delta^{-1}{\rm div}[({\bm v}\cdot \nabla){\bm v}]]_j = \sum_{n=1}^D\sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} i\frac{k_{2,m}'(k_{1,n}'+k_{2,n}')(k_{1,j}'+k_{2,j}')}{|{\bm k}_1' + {\bm k}_2'|^2} u_m({\bm k}_1')u_n({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}. \label{eq. nsterm2}
+\end{align}
+The incompressibility implies 
+\begin{align}
+    0 = {\rm div}{\bm v} = \sum_{n=1}^D\sum_{{\bm k}'\in \mathcal{K}}{ik_n' u_n({\bm k}')e^{i{\bm k}'\cdot{\bm x}}}.
+\end{align}
+This leads to 
+\begin{equation}
+    \sum_{n=1}^D k_n' u_n({\bm k}') = 0
+\end{equation}
+for all ${\bm k}'\in \mathcal{K}$, since $\{e^{i{\bm k}'\cdot{\bm x}}\}_{{\bm k}'}$ is a basis. In particular, 
+\begin{equation}
+    \sum_{m=1}^D (k_{1,m}' + k_{2,m}')u_m({\bm k}_1') = \sum_{m=1}^Dk_{1,m}'u_m({\bm k}_1')+\sum_{m=1}^Dk_{2,m}'u_m({\bm k}_1') = \sum_{m=1}^Dk_{2,m}'u_m({\bm k}_1').
+\end{equation}
+Thus, the terms (\ref{eq. nsterm1}, \ref{eq. nsterm2}) are rewritten as 
+\begin{align}
+    &[({\bm v}\cdot \nabla){\bm v}]_j =  \sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} i(k_{1,m}'+k_{2,m}') u_m({\bm k}_1')u_j({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}, \\
+    &[\nabla \Delta^{-1}{\rm div}[({\bm v}\cdot \nabla){\bm v}]]_j = \sum_{n=1}^D\sum_{m=1}^D\sum_{{\bm k}_1'\in \mathcal{K}}\sum_{{\bm k}_2'\in \mathcal{K}} i\frac{(k_{1,m}'+k_{2,m}')(k_{1,n}'+k_{2,n}')(k_{1,j}'+k_{2,j}')}{|{\bm k}_1' + {\bm k}_2'|^2} u_m({\bm k}_1')u_n({\bm k}_2')e^{i({\bm k}_1'+{\bm k}_2')\cdot{\bm x}}.
+\end{align}
+By using the orthogonality
+\begin{equation}
+    \langle e^{i{\bm k}'\cdot{\bm x}},e^{i{\bm k}\cdot{\bm x}}  \rangle = C^{-1} \delta_{{\bm k}',{\bm k}}, 
+\end{equation}
+we obtain 
+\begin{align}
+    &C\langle \partial_t v_j({\bm x}), e^{i{\bm k}\cdot{\bm x}}  \rangle  = \partial_tu_j({\bm k}), \\
+    &C\langle \mu (\Delta {\bm v})_j, e^{i{\bm k}\cdot{\bm x}}  \rangle  =-\mu|{\bm k}|^2 u_j({\bm k}), \\
+    &C\left\langle \frac{f_j}{\varrho}, e^{i{\bm k}\cdot{\bm x}}  \right\rangle  =\frac{\hat{f}_j({\bm k})}{\varrho}, \\
+    &C\langle [({\bm v}\cdot \nabla){\bm v}]_j, e^{i{\bm k}\cdot{\bm x}}  \rangle  = \sum_{m=1}^D ik_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2') = \sum_{n=1}^D \delta_{n,j} \sum_{m=1}^D ik_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2'),\\
+    &C\langle [\nabla \Delta^{-1}{\rm div}[({\bm v}\cdot \nabla){\bm v}]]_j, e^{i{\bm k}\cdot{\bm x}}  
+    \rangle = \sum_{n=1}^D\sum_{m=1}^D i\frac{k_m k_n k_j}{|{\bm k}|^2}  \sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2').
+\end{align}
+The desired expression is obtained as 
+\begin{equation}
+    \partial_tu_j({\bm k}) = -\mu|{\bm k}|^2 u_j({\bm k}) - i\sum_{n=1}^D \left(\delta_{n,j} - \frac{k_n k_j}{|{\bm k}|^2} \right) \sum_{m=1}^D k_m\sum_{{\bm k}_1'+{\bm k}_2' = {\bm k}}u_m({\bm k}_1')u_j({\bm k}_2')+\frac{\hat{f}_j({\bm k})}{\varrho}.
+\end{equation}
 \end{document}

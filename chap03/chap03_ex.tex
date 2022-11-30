@@ -1,0 +1,42 @@
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage[chap=3]{../ex}
+\newcommand{\catop}{\mathop{\big \|}\limits}
+
+\begin{document}
+
+\maketitle
+\subsection{3.26.}
+Every $[0,1)$ in this answer is homeomorphic to a circle, namely, $[0,1)=\mathbb{R}/\mathbb{Z}$. Note that $\mathbb{R}/\mathbb{Z}$ is compact. 
+\vskip 1.0em
+
+Let $T_{\rm L}(y)=y/4, T_{\rm R}(y)=(2+y)/3$ and $C_0=[0,1), C_n = T_{\rm L}(C_{n-1}) \cup T_{\rm R}(C_{n-1})$. $(C_n)_n$ is a monotone decreasing series of sets, so its limit exists. We denote the limit as $\mathcal{C}:= \lim_{n\to\infty}C_n$. 
+\vskip 1.0em
+
+$C_n\setminus C_{n-1}$ is an open set, so $\mathcal{C}$ is a complement of a union of open sets. Hence $\mathcal{C}$ is closed since a union of open sets is open. Thus $\mathcal{C}$ is compact. Let $\mathcal{A}:= [0,1)\times \mathcal{C}$. This is also a compact set and is the product of a Cantor set $\mathcal{C}$ by a segment. 
+
+$f^n(\mathcal{A})_y = \mathcal{C}$ follows from the definition of $C_n$ and $\mathcal{C}$. Thus $f^n(\mathcal{A}) \subset \mathcal{A}$, i.e., $\mathcal{A}$ is invariant.  
+
+For all $x \in \mathcal{A}$, by $\mathcal{B}(x)$ we denote a fundamental system of neighborhoods at $x$ composed of open balls. Any neighborhood $U$ of $\mathcal{A}$ contains an open neighborhood $\bar{U}$ of $\mathcal{A}$. Any open neighborhood of $\mathcal{A}$ can be expressed as $\bar{U} = \bigcup_{x\in\mathcal{A}}B(x)$, where $B(x)\in \mathcal{B}(x)$. There is a subcover $\tilde{U}:=\bigcup_{x\in\tilde{\mathcal{A}}}B(x)$ of $\mathcal{A}$ of $\bar{U}$, where $|\tilde{\mathcal{A}}|$ is finite, since $\mathcal{A}$ is compact. Let $r$ be a minimum radius of $\{B(x)\}_{x\in\tilde{\mathcal{A}}}$. This is nonzero due to the finiteness of $\tilde{\mathcal{A}}$. We can see that $f^n([0,1)^2 \subset \tilde{U} \subset \bar{U} \subset U$ for all $n > n_U$, where $n_U$ is a number such that $(1/3)^{n_U} < r$. Hence $\mathcal{A}$ is an attracting set. 
+\vskip 1.0em
+
+Apparently $f$ is invertible on $\mathcal{A}$. Let $I_0 = [0,1/3)\times [0,1), I_1 = [1/3,1)\times [0,1)$ and let $\Phi_{\mathcal R} =  (\mathcal{A},\Omega_s,R)$ be the coding relation, where
+\begin{align}
+&\Omega_s:=\left\{\mathbf{x} \in \mathcal{D}^{\mathbb{Z}} \mid M_{x_j, x_{j+1}}=1, \quad \forall j \in \mathbb{Z}\right\}, \quad \mathcal{D}:=\{0,1\}, \\
+&M_{ij} = 1 \quad \forall (i,j) \in \mathcal{D}^2, \\
+&R = \{(x,{\bm \sigma}) \mid {\bm \sigma} \in \Omega_s \ \text{and} \ f^n(x) \in I_{{\sigma}_n} \ \text{for all} \ n \in \mathbb{Z}\}.
+\end{align}
+$\Phi_{\mathcal R}$ is obviously left-total. We can also show that $\Phi_{\mathcal R}$ is one-to-many (resp. right-total) by almost the same discussion of the paragraph 3 (resp. 4) of the solution of Exercise 2.26. Thus $\Psi:=\Phi_{\mathcal R}^{-1}$ is surjective mapping on $\Omega_s$, which provides a semiconjugacy  
+\begin{equation}
+    f\circ \Psi = \Psi\circ \mathcal{S}, 
+\end{equation} 
+where $\mathcal{S}$ is a full shift on $\Omega_s$. 
+
+We claim that, to prove an orbit of $x \in \mathcal{A}$ is dense, it is enough to show that there is a code ${\bm \sigma} \in \Omega_s$ such that it includes all strings of the form $(b_n,b_{n-1},\cdots,b_2,b_1,a_1,a_2,\cdots,a_{n-1},a_n)$. Let $z\in\mathcal{A}$ and ${\bm \sigma}_z \in \Psi^{-1}(z)$. For all codes $\tilde{\bm \sigma}$ which satisfies $({\sigma_i})_{i=-n}^n = ({\sigma_{z,i}})_{i=-n}^n$, $z$ and $\Psi(\tilde{\bm \sigma})$ are in the same rectangle, whose side lengths are at most $(2/3)^n,(1/3)^n$. Thus such code ${\bm \sigma}$ is associated with $x \in \mathcal{A}$ whose orbit has element arbitrary close to any element in $\mathcal{A}$. 
+Let $\|$ be a concatenation operator of strings. We define 
+\begin{align}
+    &(\sigma_i)_{i\le 0} \equiv 0 \\
+    &(\sigma_i)_{i\ge 0} = \catop_{n=1}^\infty\catop_{{\bf x}\in \mathcal{D}^{2n}}{{\bf x}}.
+\end{align}
+Then the orbit of $\Psi({\bm \sigma})$ is dense in $\mathcal{A}$. Therefore, $\mathcal{A}$ is an attractor. 
+
+\end{document}

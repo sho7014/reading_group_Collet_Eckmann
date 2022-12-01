@@ -1,0 +1,75 @@
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage[chap=4]{../ex}
+
+\begin{document}
+
+\maketitle
+\subsection*{Errata}
+\begin{itemize}
+    \item p.~50: 
+    
+    error: ${\rm D}_0 f^s\eta$
+
+    correction: ${\rm D}_0 f^s(\eta,0)$
+\end{itemize}
+\hruleskip
+\subsection{4.2.}
+By taking derivatives of both sides of $f^{-1}\circ f(x) = x$, we obtain
+\begin{equation}
+    {\rm D}_{f(x)}(f^{-1})\cdot {\rm D}_x f = {\bf I}.
+\end{equation}
+\hruleskip
+
+\subsection{4.5.}
+Consider a characteristic polynomial 
+\begin{equation}
+    f(x) = x^2 - {\rm tr}(A)x + {\rm det}(A). 
+\end{equation}
+Its descriminant is ${\rm tr}(A)^2 - 4 {\rm det}(A) > 2^2-4 = 0$. 
+Moreover, $f(0) = 1>0$ and $f(1) = 2-{\rm tr}(A) <0$. Hence the two eigenvalues $\lambda_1, \lambda_2$ of $A$ are real and positive and satisfy $\lambda_1 < 1 < \lambda_2$. 
+\vskip 1.0em
+
+The matrix $A$ can be diagonalized as $A = P{\rm diag}(\lambda_1,\lambda_2)P^{-1}$ since the eigenvalues are distinct. 
+Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm diag}(\lambda_1,\lambda_2)y$. An orbit in the $y$-coordinate can be expressed as $(\lambda_1^ny_1(0), \lambda_2^ny_2(0))_{n\in \mathbb{Z}}, \ (y_1(0),y_2(0))\in \mathbb{R}^2$. The orbit belongs to $y_1y_2 = y_1(0)y_2(0)={\rm const}$, since $\lambda_1\lambda_2 = {\rm det}(A) = 1$. This is a hyperbola if $y_1(0)y_2(0) \neq 0$ and a line otherwise. An image of a linear transformation of a hyperbola (resp. a line) by a regular matrix $x = Py$ is a hyperbola (resp. a line). Thus each orbit of the linear map $x\mapsto Ax$ belongs to a hyperbola (or a line in a degenerate situation).  
+\hruleskip
+
+\subsection{4.10. (WIP)}
+Let $p:= {\rm dim}E^{\rm s}, q:= {\rm dim}E^{\rm u}$ and $\xi:=(\eta,g(\eta))$. $g(0)=0$ holds by definition, hence  
+\begin{equation}
+    g(\eta) = \sum_{k=1}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\eta^\top)^{\otimes j}] [D_0^{\otimes k}g] }
+\end{equation} 
+where ${\bf I}_q \in \mathbb{R}^{q\times q}$ is an identity matrix, $\otimes$ is a Kronecker product and $\eta^{\otimes k}$ is a $k$-th Kronecker power of $\eta$ (see~\cite{Chacon} for the notation and~\cite[Th~1.4.8]{Kollo} for the concrete derivation). Also, 
+\begin{align}
+    \eta' = f^s(\eta,g(\eta)) = {\rm D}_0f^s \left(\begin{array}{c}
+        \eta \\
+        0
+    \end{array}\right)
+    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_p \otimes (\xi^\top)^{\otimes j}] [D_0^{\otimes k}f^s] }.
+\end{align}
+Here, 
+\begin{equation}
+    {\rm D}_0f^u \left(\begin{array}{c}
+        \eta \\
+        g(\eta)
+    \end{array}\right)
+    = {\rm D}_0f^u \left(\begin{array}{c}
+        0 \\
+        g(\eta)
+    \end{array}\right)
+\end{equation}
+since $\eta \in E^{\rm s}$. Therefore
+\begin{align}
+    f^u(\eta,g(\eta)) = {\rm D}_0f^u \left(\begin{array}{c}
+        0 \\
+        g(\eta)
+    \end{array}\right)
+    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\xi^\top)^{\otimes j}] [D_0^{\otimes k}f^u] }.
+\end{align}
+We plug these equations into $g(\eta') = f^u(\eta,g(\eta))$ and draw coefficients of the $r$-th order terms in $\eta$ as follows.  
+
+\begin{thebibliography}{99}
+    \bibitem{Chacon} J. E. Chac\'{o}n and T. Duong, "Higher order differential analysis with vectorized derivatives", arXiv:2011.01833 (2021). https://arxiv.org/abs/2011.01833    
+    \bibitem{Kollo} T. Kollo and D. von Rosen, "Advanced Multivariate Statistics with Matrices", Springer (2011). 
+\end{thebibliography}
+
+\end{document}

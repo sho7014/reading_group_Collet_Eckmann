@@ -16,7 +16,15 @@ $C_n\setminus C_{n-1}$ is an open set, so $\mathcal{C}$ is a complement of a uni
 
 $f^n(\mathcal{A})_y = \mathcal{C}$ follows from the definition of $C_n$ and $\mathcal{C}$. Thus $f^n(\mathcal{A}) \subset \mathcal{A}$, i.e., $\mathcal{A}$ is invariant.  
 
-For all $x \in \mathcal{A}$, by $\mathcal{B}(x)$ we denote a fundamental system of neighborhoods at $x$ composed of open balls. Any neighborhood $U$ of $\mathcal{A}$ contains an open neighborhood $\bar{U}$ of $\mathcal{A}$. Any open neighborhood of $\mathcal{A}$ can be expressed as $\bar{U} = \bigcup_{x\in\mathcal{A}}B(x)$, where $B(x)\in \mathcal{B}(x)$. There is a subcover $\tilde{U}:=\bigcup_{x\in\tilde{\mathcal{A}}}B(x)$ of $\mathcal{A}$ of $\bar{U}$, where $|\tilde{\mathcal{A}}|$ is finite, since $\mathcal{A}$ is compact. Let $r$ be a minimum radius of $\{B(x)\}_{x\in\tilde{\mathcal{A}}}$. This is nonzero due to the finiteness of $\tilde{\mathcal{A}}$. We can see that $f^n([0,1)^2 \subset \tilde{U} \subset \bar{U} \subset U$ for all $n > n_U$, where $n_U$ is a number such that $(1/3)^{n_U} < r$. Hence $\mathcal{A}$ is an attracting set. 
+Any neighborhood $U$ of $\mathcal{A}$ contains an open neighborhood $\bar{U}$ of $\mathcal{A}$. For all $x \in [0,1), y \in \mathcal{C}$, by $\mathcal{B}_1(x), \mathcal{B}_2(x)$ we denote fundamental systems of neighborhoods at $x, y$ in $[0,1), \mathcal{C}$ composed of open balls respectively. Any open neighborhood of $\mathcal{A}$ can be expressed as 
+\begin{equation}
+    \bar{U} = \bigcup_{(x,y)\in\mathcal{A}} \bigcup_{B_1(x)\in \mathcal{B}^{\bar{U}}_1(x), B_2(y)\in \mathcal{B}^{\bar{U}}_2(y) } B_1(x)\times B_2(y), 
+\end{equation}
+where $\mathcal{B}^{\bar{U}}_1(x)\subset \mathcal{B}_1(x), \mathcal{B}^{\bar{U}}_2(y)\subset \mathcal{B}_2(y)$. There is a subcover 
+\begin{equation}
+    \tilde{U} = \bigcup_{(x,y)\in\tilde{\mathcal{A}}} \bigcup_{B_1(x)\in \tilde{\mathcal{B}}^{\bar{U}}_1(x), B_2(y)\in \tilde{\mathcal{B}}^{\bar{U}}_2(y) } B_1(x)\times B_2(y), 
+\end{equation}
+of $\mathcal{A}$ of $\bar{U}$, where $|\tilde{\mathcal{A}}|\cdot |\tilde{\mathcal{B}}^{\bar{U}}_1(x)|\cdot |\tilde{\mathcal{B}}^{\bar{U}}_2(y)|$ is finite, since $\mathcal{A}$ is compact. Let $r$ be a minimum radius of $\{\tilde{\mathcal{B}}^{\bar{U}}_2(y)\}_{(x,y)\in \tilde{\mathcal{A}}}$. This is nonzero due to the finiteness of $|\tilde{\mathcal{A}}|\cdot |\tilde{\mathcal{B}}^{\bar{U}}_2(y)|$. We can see that $f^n([0,1)^2 \subset \tilde{U} \subset \bar{U} \subset U$ for all $n > n_U$, where $n_U$ is a number such that $(1/3)^{n_U} < r$. Hence $\mathcal{A}$ is an attracting set. 
 \vskip 1.0em
 
 Apparently $f$ is invertible on $\mathcal{A}$. Let $I_0 = [0,1/3)\times [0,1), I_1 = [1/3,1)\times [0,1)$ and let $\Phi_{\mathcal R} =  (\mathcal{A},\Omega_s,R)$ be the coding relation, where
@@ -25,7 +33,7 @@ Apparently $f$ is invertible on $\mathcal{A}$. Let $I_0 = [0,1/3)\times [0,1), I
 &M_{ij} = 1 \quad \forall (i,j) \in \mathcal{D}^2, \\
 &R = \{(x,{\bm \sigma}) \mid {\bm \sigma} \in \Omega_s \ \text{and} \ f^n(x) \in I_{{\sigma}_n} \ \text{for all} \ n \in \mathbb{Z}\}.
 \end{align}
-$\Phi_{\mathcal R}$ is obviously left-total. We can also show that $\Phi_{\mathcal R}$ is one-to-many (resp. right-total) by almost the same discussion of the paragraph 3 (resp. 4) of the solution of Exercise 2.26. Thus $\Psi:=\Phi_{\mathcal R}^{-1}$ is surjective mapping on $\Omega_s$, which provides a semiconjugacy  
+$\Phi_{\mathcal R}$ is obviously left-total. We can also show that $\Phi_{\mathcal R}$ is one-to-many (resp. right-total) by the similar discussion of the paragraph 3 (resp. 4) of the solution of Exercise 2.26. Thus $\Psi:=\Phi_{\mathcal R}^{-1}$ is surjective mapping on $\Omega_s$, which provides a semiconjugacy  
 \begin{equation}
     f\circ \Psi = \Psi\circ \mathcal{S}, 
 \end{equation} 

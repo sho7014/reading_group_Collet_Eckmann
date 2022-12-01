@@ -36,7 +36,7 @@ Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm di
 \subsection{4.10. (WIP)}
 Let $p:= {\rm dim}E^{\rm s}, q:= {\rm dim}E^{\rm u}$ and $\xi:=(\eta,g(\eta))$. $g(0)=0$ holds by definition, hence  
 \begin{equation}
-    g(\eta) = \sum_{k=1}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\eta^\top)^{\otimes j}] [D_0^{\otimes k}g] }
+    g(\eta) = \sum_{k=1}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\eta^\top)^{\otimes k}] [D_0^{\otimes k}g] }
 \end{equation} 
 where ${\bf I}_q \in \mathbb{R}^{q\times q}$ is an identity matrix, $\otimes$ is a Kronecker product and $\eta^{\otimes k}$ is a $k$-th Kronecker power of $\eta$ (see~\cite{Chacon} for the notation and~\cite[Th~1.4.8]{Kollo} for the concrete derivation). Also, 
 \begin{align}
@@ -44,7 +44,7 @@ where ${\bf I}_q \in \mathbb{R}^{q\times q}$ is an identity matrix, $\otimes$ is
         \eta \\
         0
     \end{array}\right)
-    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_p \otimes (\xi^\top)^{\otimes j}] [D_0^{\otimes k}f^s] }.
+    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_p \otimes (\xi^\top)^{\otimes k}] [D_0^{\otimes k}f^s] }.
 \end{align}
 Here, 
 \begin{equation}
@@ -63,7 +63,7 @@ since $\eta \in E^{\rm s}$. Therefore
         0 \\
         g(\eta)
     \end{array}\right)
-    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\xi^\top)^{\otimes j}] [D_0^{\otimes k}f^u] }.
+    + \sum_{k=2}^\infty{\frac{1}{k!}[{\bf I}_q \otimes (\xi^\top)^{\otimes k}] [D_0^{\otimes k}f^u] }.
 \end{align}
 We plug these equations into $g(\eta') = f^u(\eta,g(\eta))$ and draw coefficients of the $r$-th order terms in $\eta$ as follows.  
 

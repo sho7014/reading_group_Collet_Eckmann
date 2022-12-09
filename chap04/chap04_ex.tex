@@ -56,12 +56,12 @@ and
 \end{align}
 Then the Fa\'{a} di Bruno's formula is given as~\cite[Sec.~2.4]{abraham2012manifolds}\footnote{Note that how the sum is taken in the last expression in the page.~97 is somewhat vague.}
 \begin{equation}
-    D^n\left(f_1 \circ f_2\right)(x) h_\omega =\sum_{\substack{\pi \in \mathcal{Q}(n) \\
-    (k:=|\pi|)}} D^k f_1\left(f_2(x)\right)\left(D^{\left|\pi_1\right|} f_2(x) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} f_2(x) h_{\pi_k}\right),  \label{eq: bruno}
+    D^n\left(f_1 \circ f_2\right)(x) \eta_\omega =\sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f_1\left(f_2(x)\right)\left(D^{\left|\pi_1\right|} f_2(x) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} f_2(x) \eta_{\pi_k}\right),  \label{eq: bruno}
 \end{equation}
 where for any $\pi=\left(\pi_1, \cdots, \pi_k \right)$ let $|\pi|=k$ denote its length and for any finite subset $\omega = \{\omega_1, \cdots , \omega_n \}$ of $\mathbb{N}$, 
 \begin{equation}
-    h_{\omega} = (h_{\sigma(\omega_1)},\cdots,h_{\sigma(\omega_n)}) 
+    \eta_{\omega} = (\eta_{\sigma(\omega_1)},\cdots,\eta_{\sigma(\omega_n)}) 
 \end{equation}
 where $\sigma$ is a permutation and $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$.
 \vskip 1.0em
@@ -72,22 +72,22 @@ Let $\tilde{g}(x):=(x,g(x))$. We take the $n$-th derivatives of the both sides o
 \end{equation}
 and apply the rule (\ref{eq: bruno}). 
 \begin{align}
-    &\text{(l.h.s):} \ D^n (g\circ f^{\rm s} \circ \tilde{g})(0)(h_1,\cdots,h_n) \nonumber \\
+    &\text{(l.h.s):} \ D^n (g\circ f^{\rm s} \circ \tilde{g})(0)(\eta_1,\cdots,\eta_n) \nonumber \\
     & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
-    (k:=|\pi|)}} D^k (g\circ f^{\rm s})\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right) \nonumber \\
+    (k:=|\pi|)}} D^k (g\circ f^{\rm s})\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right) \nonumber \\
     & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
     (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
-    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_1}
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_1}
     , \right. \nonumber \\ 
-    &\hspace{4cm} \ldots, \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_l}\right) \\
-    &\text{(r.h.s):} \ D^n (f^{\rm u} \circ \tilde{g})(0)(h_1,\cdots,h_n) \nonumber \\
+    &\hspace{4cm} \ldots, \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_l}\right) \\
+    &\text{(r.h.s):} \ D^n (f^{\rm u} \circ \tilde{g})(0)(\eta_1,\cdots,\eta_n) \nonumber \\
     &= \sum_{\substack{\pi \in \mathcal{Q}(n) \\
-    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right). 
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right). 
 \end{align}
 Here, we defined  
 \begin{equation}
-    \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\omega} =
-     \left( D^{\left|\pi_{\sigma(\omega_1)}\right|} \tilde{g}(0) h_{\pi_{\sigma(\omega_1)}},\cdots, D^{\left|\pi_{\sigma(\omega_n)}\right|} \tilde{g}(0) h_{\pi_{\sigma(\omega_n)}} \right),
+    \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\omega} =
+     \left( D^{\left|\pi_{\sigma(\omega_1)}\right|} \tilde{g}(0) \eta_{\pi_{\sigma(\omega_1)}},\cdots, D^{\left|\pi_{\sigma(\omega_n)}\right|} \tilde{g}(0) \eta_{\pi_{\sigma(\omega_n)}} \right),
 \end{equation}
 where $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$. 
 Thus we obtain 
@@ -95,15 +95,35 @@ Thus we obtain
     \begin{aligned}
         &\sum_{\substack{\pi \in \mathcal{Q}(n) \\
     (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
-    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_1}
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_1}
     , \ldots , \right. \\
-    & \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_l}\right) = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
-    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right).
+    & \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_l}\right) = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right).
     \end{aligned} \label{eq: manieq}
 \end{equation}
 \vskip 1.0em
 
-We can draw a $n$-th order equation from (\ref{eq: manieq}) as follows:   
+Let $D_{\rm s}, D_{\rm u}$ denote differentiation w.r.t $E^{\rm s}, E^{\rm u}$ respectively. Let $x_1 \in E^{\rm s}, x_2 \in E^{\rm u}$. The linearization of the mapping $f$ at the origin is 
+\begin{equation}
+    Df(0)\left(\begin{array}{c}
+        x_1 \\
+        x_2
+    \end{array}\right) = \left(\begin{array}{cc}
+        D_{\rm s}f^{\rm s}(0) & D_{\rm u}f^{\rm s}(0) \\
+        D_{\rm s}f^{\rm u}(0) & D_{\rm u}f^{\rm u}(0)
+    \end{array}\right)\left(\begin{array}{c}
+        x_1 \\
+        x_2
+    \end{array}\right).
+\end{equation}
+The linearized dynamics is invariant on $E^{\rm s}$ and $E^{\rm u}$, thus 
+\begin{equation}
+    D_{\rm u}f^{\rm s}(0) = 0, D_{\rm s}f^{\rm u}(0)=0. 
+\end{equation}
+Let us denote $A_{\rm s}:= D_{\rm s}f^{\rm s}(0), A_{\rm u}:= D_{\rm u}f^{\rm u}(0)$. By definition $\sigma_{A_{\rm s}}$ (resp. $\sigma_{A_{\rm u}}$) is included inside (resp. outside) the unit circle, where $\sigma_A$ is the spectrum of $A$.  
+\vskip 1.0em
+
+Let us draw the $n$-th order equation from (\ref{eq: manieq}).   
 
 \bibliography{chap04}
 \bibliographystyle{unsrt}

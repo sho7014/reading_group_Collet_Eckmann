@@ -28,8 +28,82 @@ Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm di
 This answer greatly relies on~\cite{beyn1998numerical}. 
 \vskip 1.0em
 
-The Leibniz rule and the Fa\'{a} di Bruno's formula 
+Let $f_1, f_2$ be $C^n$  
+\if0
+The Leibniz rule for the $n$-th derivative of their pointwise product $(f_1\cdot f_2)(x)$ is given as~\cite[Sec.~2.4]{abraham2012manifolds}\footnote{Note that $\left(\begin{array}{c}
+    k \\
+    i
+\end{array}\right)$ in the last expression in the page.~96 is redundant.}
+\begin{equation}
+    D^n \left(f_1 \cdot f_2 \right)(x)\left(h_1, \ldots, h_n\right)=\sum_{\pi \in \mathcal{P}_n} \left(D^{\left|\pi_1\right|} f_1(x) h_{\pi_1} \cdot D^{\left|\pi_2\right|} f_2(x) h_{\pi_2}\right). \label{eq: leibniz}
+\end{equation}
+Here, for any finite subset $\omega = \{\omega_1, \cdots , \omega_n \}$ of $\mathbb{N}$, let $|\omega|$ denote its cardinality and 
+\begin{equation}
+    h_{\omega} = (h_{\sigma(\omega_1)},\cdots,h_{\sigma(\omega_n)}), \quad h_{\emptyset} = 1, 
+\end{equation}
+where $\sigma$ is a permutation and $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$. Also, $\mathcal{P}_n$ is defined as 
+\begin{align}
+    \mathcal{P}_n=\left\{\pi=\left(\pi_1, \pi_2\right)\mid \pi_1, \pi_2 \subset\{1, \ldots, n\}, \pi_1 \cup \pi_2=\{1, \ldots, n\}, \pi_1 \cap \pi_2=\emptyset\right\}. 
+\end{align}
+Let 
+\fi
+and 
+\begin{align}
+    &\mathcal{Q}_k(\omega) = \left\{\pi=\left(\pi_1, \cdots, \pi_k \right)\mid 
+    \emptyset \neq \pi_i \subset \omega, \ \bigcup_{i=1}^k \pi_i=\omega, \ \pi_i \cap \pi_j=\emptyset \
+    \text{and} \ \min \pi_i<\min \pi_j \ \text{for all} \ i<j \right\}, \\
+    &\mathcal{Q}(\omega) = \bigcup_{k=1}^{|\omega|}\mathcal{Q}_k(\omega), \quad \mathcal{Q}(\emptyset) = \{\emptyset\}, \quad \mathcal{Q}(n) = \mathcal{Q}(\{1,\cdots,n\}).  
+\end{align}
+Then the Fa\'{a} di Bruno's formula is given as~\cite[Sec.~2.4]{abraham2012manifolds}\footnote{Note that how the sum is taken in the last expression in the page.~97 is somewhat vague.}
+\begin{equation}
+    D^n\left(f_1 \circ f_2\right)(x) h_\omega =\sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f_1\left(f_2(x)\right)\left(D^{\left|\pi_1\right|} f_2(x) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} f_2(x) h_{\pi_k}\right),  \label{eq: bruno}
+\end{equation}
+where for any $\pi=\left(\pi_1, \cdots, \pi_k \right)$ let $|\pi|=k$ denote its length and for any finite subset $\omega = \{\omega_1, \cdots , \omega_n \}$ of $\mathbb{N}$, 
+\begin{equation}
+    h_{\omega} = (h_{\sigma(\omega_1)},\cdots,h_{\sigma(\omega_n)}) 
+\end{equation}
+where $\sigma$ is a permutation and $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$.
+\vskip 1.0em
 
+Let $\tilde{g}(x):=(x,g(x))$. We take the $n$-th derivatives of the both sides of 
+\begin{equation}
+    g\circ f^{\rm s}(\eta,g(\eta)) = f^{\rm u}(\eta,g(\eta)) \Leftrightarrow g\circ f^{\rm s} \circ \tilde{g}(\eta) = f^{\rm u} \circ \tilde{g}(\eta)
+\end{equation}
+and apply the rule (\ref{eq: bruno}). 
+\begin{align}
+    &\text{(l.h.s):} \ D^n (g\circ f^{\rm s} \circ \tilde{g})(0)(h_1,\cdots,h_n) \nonumber \\
+    & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k (g\circ f^{\rm s})\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right) \nonumber \\
+    & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_1}
+    , \right. \nonumber \\ 
+    &\hspace{4cm} \ldots, \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_l}\right) \\
+    &\text{(r.h.s):} \ D^n (f^{\rm u} \circ \tilde{g})(0)(h_1,\cdots,h_n) \nonumber \\
+    &= \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right). 
+\end{align}
+Here, we defined  
+\begin{equation}
+    \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\omega} =
+     \left( D^{\left|\pi_{\sigma(\omega_1)}\right|} \tilde{g}(0) h_{\pi_{\sigma(\omega_1)}},\cdots, D^{\left|\pi_{\sigma(\omega_n)}\right|} \tilde{g}(0) h_{\pi_{\sigma(\omega_n)}} \right),
+\end{equation}
+where $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$. 
+Thus we obtain 
+\begin{equation}
+    \begin{aligned}
+        &\sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_1}
+    , \ldots , \right. \\
+    & \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right)_{\tau_l}\right) = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) h_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) h_{\pi_k}\right).
+    \end{aligned} \label{eq: manieq}
+\end{equation}
+\vskip 1.0em
+
+We can draw a $n$-th order equation from (\ref{eq: manieq}) as follows:   
 
 \bibliography{chap04}
 \bibliographystyle{unsrt}

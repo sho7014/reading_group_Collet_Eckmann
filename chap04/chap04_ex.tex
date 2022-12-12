@@ -25,7 +25,7 @@ Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm di
 \hruleskip
 
 \subsection{4.10. (WIP)}
-This answer greatly relies on~\cite{beyn1998numerical}. 
+This answer greatly relies on~\cite{beyn1998numerical} but somewhat concretized. 
 \vskip 1.0em
 
 Let $f_1, f_2$ be $C^n$  
@@ -136,14 +136,34 @@ We can see that
 \end{align}  
 Thus the first order equation is equivalent to the Sylvester equation 
 \begin{equation}
-    Dg(0)A_{\rm s} - A_{\rm u}Dg(0) =0 \label{eq: firstsyl}
+    Dg(0)A_{\rm s}\eta - A_{\rm u}Dg(0)\eta =0. \label{eq: firstsyl}
 \end{equation}
-since $\eta$ is arbitrary. 
 \vskip 1.0em
 
 To analyze and solve the Sylvester equation, we resort to the trick of the Kronecker form. 
+%Let $p=\mathop{\rm dim}{E^{\rm s}}, q=\mathop{\rm dim}{E^{\rm u}}$. 
 Let us denote a space of $n$-multilinear maps of $E_1,\cdots,E_n$ to $E_0$ by $\mathcal{L}(E_1,\cdots,E_n;E_0)$. 
-
+For $\nu = 1,\cdots, n$ let $(e_{\nu,1},\cdots,e_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be an ordered basis of $E_\nu$ and let $(e^*_{\nu,1},\cdots,e^*_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be its dual. Then the space $\mathcal{L}(E_1,\cdots,E_n;E_0) = E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$, where $\otimes$ means a tensor product, has a basis 
+\begin{equation}
+    (e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0})_{(r_n\cdots,r_0)}, \quad (r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}. \label{eq: tensorrepbasis}
+\end{equation}
+We order the basis (\ref{eq: tensorrepbasis}) lexicographically with priority to the first components of $(r_n\cdots,r_0)$. A multilinear map $\tilde{U}\in \mathcal{L}(E_1,\cdots,E_n;E_0)$ has a coordinate representation $U\in \mathbb{R}^{\mathop{\rm dim}{E_n^*}\times\cdots\times\mathop{\rm dim}{E_1^*}\times\mathop{\rm dim}{E_0}}$ as 
+\begin{equation}
+    \tilde{U} = \sum_{(r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}} U_{r_n\cdots r_1r_0} e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0}. 
+\end{equation}
+Let ${\rm vec}: \mathbb{R}^{I_1\times\cdots \times I_N} \to \mathbb{R}^{\prod_{i=1}^N{I_i}}$ be a vectorization operator
+\begin{equation}
+    ({\rm vec}(U))_i = U_{i_1\cdots i_{N}} \quad {\text with} \quad i = 1+\sum_{l=1}^N\left[(i_l -1)\prod_{l'=1}^{l-1}I_{l'} \right]. 
+\end{equation}
+By $U\times_n A \in \mathbb{R}^{I_1\times\cdots I_{n-1}\times I \times I_{n+1} \times I_N}$ we denote an $n$-mode product of a tensor~\cite{kolda2006multilinear} $U\in \mathbb{R}^{I_1\times\cdots \times I_N}$ with a matrix $A\in \mathbb{R}^{I\times I_n}$, defined as 
+\begin{equation}
+    (U\times_n A)_{i_1\cdots i_{n-1} i i_{n+1}\cdots i_N} = \sum_{i_n = 1}^{I_n}U_{i_1\cdots i_N}A_{i i_n}.
+\end{equation}
+An action of $\tilde{U}\in E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$ on $(\tilde{h}_1,\cdots,\tilde{h}_n, \tilde{h}^*_0)\in \prod_{i=1}^n{E^n\times E^*_0}$ is rewritten in the coordinate representation as $U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*$. The ${\rm vec}$ operation on this representation provides a convenient Kronecker form (this is a special case of~\cite[Proposition~3.7~(b)]{kolda2006multilinear})
+\begin{equation}
+    {\rm vec}(U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*) = (h_n^*\otimes \cdots \otimes h_1^* \otimes h_0^*) {\rm vec}(U), 
+\end{equation}
+where $\otimes$ denotes the Kronecker product. In the following, we identify any multilinear map and elements in $E^{\rm s}, E^{\rm u}$ as their coordinate representation. 
 
 \bibliography{chap04}
 \bibliographystyle{unsrt}

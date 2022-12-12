@@ -1,5 +1,6 @@
 \documentclass[a4paper,11pt,fleqn]{article}
 \usepackage[chap=4]{../ex}
+\newcommand{\vecop}[1]{\mathop{\rm vec}\left(#1\right)}
 
 \begin{document}
 
@@ -25,7 +26,7 @@ Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm di
 \hruleskip
 
 \subsection{4.10. (WIP)}
-This answer greatly relies on~\cite{beyn1998numerical} but somewhat concretized. 
+This answer greatly relies on~\cite{beyn1998numerical} but somewhat elementalized and concretized. 
 \vskip 1.0em
 
 Let $f_1, f_2$ be $C^n$  
@@ -120,7 +121,7 @@ The linearized dynamics is invariant on $E^{\rm s}$ and $E^{\rm u}$, thus
 \begin{equation}
     D_{\rm u}f^{\rm s}(0) = 0, D_{\rm s}f^{\rm u}(0)=0. 
 \end{equation}
-Let us denote $A_{\rm s}:= D_{\rm s}f^{\rm s}(0), A_{\rm u}:= D_{\rm u}f^{\rm u}(0)$. By definition $\sigma_{A_{\rm s}}$ (resp. $\sigma_{A_{\rm u}}$) is included inside (resp. outside) the unit circle, where $\sigma_A$ is the spectrum of $A$.  
+Let us denote $A_{\rm s}:= D_{\rm s}f^{\rm s}(0), A_{\rm u}:= D_{\rm u}f^{\rm u}(0)$. By definition $\sigma({A_{\rm s}})$ (resp. $\sigma({A_{\rm u}})$) is included inside (resp. outside) the unit circle, where $\sigma(A)$ is the spectrum of $A$.  
 \vskip 1.0em
 
 Let us derive a few concrete $n$-th order equations from (\ref{eq: manieq}). 
@@ -141,29 +142,66 @@ Thus the first order equation is equivalent to the Sylvester equation
 \vskip 1.0em
 
 To analyze and solve the Sylvester equation, we resort to the trick of the Kronecker form. 
-%Let $p=\mathop{\rm dim}{E^{\rm s}}, q=\mathop{\rm dim}{E^{\rm u}}$. 
 Let us denote a space of $n$-multilinear maps of $E_1,\cdots,E_n$ to $E_0$ by $\mathcal{L}(E_1,\cdots,E_n;E_0)$. 
 For $\nu = 1,\cdots, n$ let $(e_{\nu,1},\cdots,e_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be an ordered basis of $E_\nu$ and let $(e^*_{\nu,1},\cdots,e^*_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be its dual. Then the space $\mathcal{L}(E_1,\cdots,E_n;E_0) = E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$, where $\otimes$ means a tensor product, has a basis 
 \begin{equation}
-    (e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0})_{(r_n\cdots,r_0)}, \quad (r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}. \label{eq: tensorrepbasis}
+    (e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0})_{(r_n,\cdots,r_0)}, \quad (r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}. \label{eq: tensorrepbasis}
 \end{equation}
-We order the basis (\ref{eq: tensorrepbasis}) lexicographically with priority to the first components of $(r_n\cdots,r_0)$. A multilinear map $\tilde{U}\in \mathcal{L}(E_1,\cdots,E_n;E_0)$ has a coordinate representation $U\in \mathbb{R}^{\mathop{\rm dim}{E_n^*}\times\cdots\times\mathop{\rm dim}{E_1^*}\times\mathop{\rm dim}{E_0}}$ as 
+We order the basis (\ref{eq: tensorrepbasis}) lexicographically with priority to the first components of $(r_n,\cdots,r_0)$. A multilinear map $\tilde{U}\in \mathcal{L}(E_1,\cdots,E_n;E_0)$ has a coordinate representation $U\in \mathbb{R}^{\mathop{\rm dim}{E_0} \times \mathop{\rm dim}{E_1^*} \times \cdots\times\mathop{\rm dim}{E_n^*}}$ as 
 \begin{equation}
-    \tilde{U} = \sum_{(r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}} U_{r_n\cdots r_1r_0} e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0}. 
+    \tilde{U} = \sum_{(r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}} U_{r_0r_1\cdots r_n} e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0}. 
 \end{equation}
-Let ${\rm vec}: \mathbb{R}^{I_1\times\cdots \times I_N} \to \mathbb{R}^{\prod_{i=1}^N{I_i}}$ be a vectorization operator
+Let ${\rm vec}: \mathbb{R}^{J_1\times\cdots \times J_N} \to \mathbb{R}^{\prod_{i=1}^N{J_i}}$ be a vectorization operator
 \begin{equation}
-    ({\rm vec}(U))_i = U_{i_1\cdots i_{N}} \quad {\text with} \quad i = 1+\sum_{l=1}^N\left[(i_l -1)\prod_{l'=1}^{l-1}I_{l'} \right]. 
+    ({\rm vec}(U))_i = U_{j_1\cdots j_{N}} \quad {\text with} \quad i = 1+\sum_{l=1}^N\left[(j_l -1)\prod_{l'=1}^{l-1}J_{l'} \right]. 
 \end{equation}
-By $U\times_n A \in \mathbb{R}^{I_1\times\cdots I_{n-1}\times I \times I_{n+1} \times I_N}$ we denote an $n$-mode product of a tensor~\cite{kolda2006multilinear} $U\in \mathbb{R}^{I_1\times\cdots \times I_N}$ with a matrix $A\in \mathbb{R}^{I\times I_n}$, defined as 
+By $U\times_n A \in \mathbb{R}^{J_1\times\cdots J_{n-1}\times I \times J_{n+1} \times \cdots \times J_N}$ we denote an $n$-mode product of a tensor~\cite{kolda2006multilinear} $U\in \mathbb{R}^{J_1\times\cdots \times J_N}$ with a matrix $A\in \mathbb{R}^{I\times J_n}$, defined as 
 \begin{equation}
-    (U\times_n A)_{i_1\cdots i_{n-1} i i_{n+1}\cdots i_N} = \sum_{i_n = 1}^{I_n}U_{i_1\cdots i_N}A_{i i_n}.
+    (U\times_n A)_{j_1\cdots j_{n-1} i j_{n+1}\cdots j_N} = \sum_{j_n = 1}^{J_n}U_{j_1\cdots j_N}A_{i j_n}.
 \end{equation}
 An action of $\tilde{U}\in E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$ on $(\tilde{h}_1,\cdots,\tilde{h}_n, \tilde{h}^*_0)\in \prod_{i=1}^n{E^n\times E^*_0}$ is rewritten in the coordinate representation as $U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*$. The ${\rm vec}$ operation on this representation provides a convenient Kronecker form (this is a special case of~\cite[Proposition~3.7~(b)]{kolda2006multilinear})
 \begin{equation}
-    {\rm vec}(U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*) = (h_n^*\otimes \cdots \otimes h_1^* \otimes h_0^*) {\rm vec}(U), 
+    {\rm vec}(U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*) = (h_n^*\otimes \cdots \otimes h_1^* \otimes h_0^*) {\rm vec}(U), \label{eq: vecop}
 \end{equation}
 where $\otimes$ denotes the Kronecker product. In the following, we identify any multilinear map and elements in $E^{\rm s}, E^{\rm u}$ as their coordinate representation. 
+\vskip 1.0em
+
+Let $p=\mathop{\rm dim}{E^{\rm s}}, q=\mathop{\rm dim}{E^{\rm u}}$. 
+From (\ref{eq: firstsyl}), it is obvious that for any $\eta_0^\top\in E^{{\rm u}*}, \eta_1 \in E^{\rm s}$ 
+\begin{align}
+    &\eta_0^\top Dg(0)A_{\rm s}\eta_1 - \eta_0^\top A_{\rm u}Dg(0)\eta_1 =0 \nonumber \\
+    &\Leftrightarrow \vecop{Dg(0)\times_1 \eta_0^\top \times_2 \eta_1^\top A_{\rm s}^\top} - \vecop{Dg(0)\times_1 \eta_0^\top A_{\rm u} \times_2 \eta_1^\top}=0 \quad (\because {\rm vec}(\cdot) \ \text{is linear}) \nonumber \\
+    &\Leftrightarrow (\eta_1^\top A_{\rm s}^\top \otimes \eta_0^\top I_q - \eta_1^\top I_p \otimes \eta_0^\top A_{\rm u})\vecop{Dg(0)} = 0 \quad (\because (\ref{eq: vecop})) \nonumber \\
+    &\Leftrightarrow (\eta_1^\top\otimes \eta_0^\top)\cdot (A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}) \vecop{Dg(0)} = 0 \quad (\because (AB)\otimes(CD)=(A\otimes C)\cdot(B\otimes D)) \nonumber \\
+    &\Leftrightarrow (A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}) \vecop{Dg(0)} = 0 \quad (\because \eta_0, \eta_1 \text{ are arbitrary}). 
+\end{align}
+The following theorem is well-known~\cite[Thm.~4.4.5]{roger1994topics}. 
+\begin{theorem}\label{thm: kronsum}\mbox{}\\
+    If $\sigma (A)=\{ \lambda_1,\cdots,\lambda_n\}, \sigma (B)=\{ \mu_1,\cdots,\mu_m \}$, then $\sigma(I_m\otimes A+B\otimes I_n) = \{ \lambda_i+\mu_j \mid i\in\{ 1,\cdots,n \}, j\in \{1,\cdots,m\} \}$. 
+\end{theorem}
+This implies $A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}$ is regular since $\sigma({A_{\rm s}})$ (resp. $\sigma({A_{\rm u}})$) is included inside (resp. outside) the unit circle. Therefore $Dg(0) = 0$. 
+\vskip 1.0em
+
+The second order equation of (\ref{eq: manieq}) is 
+\begin{equation}
+    D^2g(0)(A_{\rm s}\eta_1,A_{\rm s}\eta_2) - Df^{\rm u}(0)D^2\tilde{g}(0)(\eta_1,\eta_2) = D^2f^{\rm u}(0)(D\tilde{g}(0)\eta_1,D\tilde{g}(0)\eta_2). 
+\end{equation}
+In the second term of the l.h.s., the first $p$ columns of $Df^{\rm u}(0)$ are zeros, so the first $p$ mode-$1$ slices of $D^2\tilde{g}(0)$ do not contribute to the term, i.e., $Df^{\rm u}(0)D^2\tilde{g}(0)(\eta_1,\eta_2) = A_{\rm u}D^2g(0)(\eta_1,\eta_2)$. Also, components of $D^2f^{\rm u}(0)$ of indices larger than $p+1$ do not contribute to the r.h.s.~since $Dg(0)=0$. Namely, $D^2f^{\rm u}(0)(D\tilde{g}(0)\eta_1,D\tilde{g}(0)\eta_2)=D_{\rm s}^2f^{\rm u}(0)(\eta_1,\eta_2)$. Then we obtain a multilinear Sylvester equation. For any $\eta_0^\top\in E^{{\rm u}*}, \eta_1, \eta_2 \in E^{\rm s}$ 
+\begin{align}
+    &\eta_0^\top D^2g(0)(A_{\rm s}\eta_1,A_{\rm s}\eta_2)  - \eta_0^\top A_{\rm u}D^2g(0)(\eta_1,\eta_2) =\eta_0^\top D_{\rm s}^2f^{\rm u}(0)(\eta_1,\eta_2) \nonumber \\
+    &\Leftrightarrow (A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u}) \vecop{D^2g(0)} = \vecop{D_{\rm s}^2f^{\rm u}(0)} \quad (\because \eta_0, \eta_1, \eta_2 \text{ are arbitrary}).
+\end{align}
+The theorem \ref{thm: kronsum} and the following one~\cite[Thm.~4.2.12]{roger1994topics} 
+\begin{theorem}\label{thm: kronprod}\mbox{}\\
+    If $\sigma (A)=\{ \lambda_1,\cdots,\lambda_n\}, \sigma (B)=\{ \mu_1,\cdots,\mu_m \}$, then $\sigma(A\otimes B) = \{ \lambda_i\mu_j \mid i\in\{ 1,\cdots,n \}, j\in \{1,\cdots,m\} \}$. 
+\end{theorem}
+lead to the regularity of $(A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u})$. Thus we obtain
+\begin{equation}
+    D^2g(0) = {\rm vec}^{-1}\left[(A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u})^{-1}\vecop{D_{\rm s}^2f^{\rm u}(0)}\right].
+\end{equation} 
+\vskip 1.0em
+
+Similarly, the higher order equation of (\ref{eq: manieq}) lead to a multilinear Sylvester equation of a unique solution, which can be explicitly written using a more complicated Kronecker form.    
 
 \bibliography{chap04}
 \bibliographystyle{unsrt}

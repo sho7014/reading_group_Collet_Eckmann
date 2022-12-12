@@ -1,0 +1,38 @@
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage[chap=4]{../ex}
+
+\begin{document}
+
+\maketitle
+\subsection{4.12.}
+Inverse map is obtained as
+\begin{equation}
+    \left\lbrace\begin{array}{c}
+        x' = x - 1.6y'(1-y'^2) \\
+        y' = y + 1.6x(1-x^2)
+    \end{array}\right. .
+\end{equation}
+The jacobian of $f$ is given as 
+\begin{equation}
+    Df(x,y) = \left(\begin{array}{cc}
+        1 & 1.6(1-3y^2) \\
+        -1.6(1-3x'^2) & 1-1.6^2(1-3y^2)(1-3x'^2)
+    \end{array} \right). 
+\end{equation}
+$f$ is injective and $\mathop{\rm det}{(Df(x,y))}\equiv 1$, so $f$ is area-preserving. 
+The fixed points $(x_*,y_*)$s satisfy simultaneous equations $y(1-y^2)=0, x(1-x^2)=0$, so $(x_*,y_*) \in \{0,1,-1\}^2$. If $\mathop{\rm tr}{(Df(x_*,y_*))}^2-4 \mathop{\rm det}{(Df(x_*,y_*))} = \mathop{\rm tr}{(Df(x_*,y_*))}^2 - 4 > 0$, $f$ is hyperbolic at the fixed point and non-hyperbolic otherwise. 
+\begin{align}
+    &\mathop{\rm tr}{(Df(x_*,y_*))}^2 - 4 = -1.6^2\times 4(1-3y_*^2)(1-3x_*^2) + 1.6^4(1-3y_*^2)^2(1-3x_*^2)^2 > 0 \nonumber \\
+    &\Leftrightarrow \mathop{\rm tr}{(Df(x_*,y_*))} + 2 <0 \ (\because x_*, y_* \text{ are not irrational} ) \nonumber \\
+    &\Leftrightarrow g(x_*,y_*):= 4 -1.6^2(1-3y_*^2)(1-3x_*^2) <0. 
+\end{align}
+We evaluate $g$ on the fixed points as 
+\begin{align}
+    g(0,0) = 4 - 1.6^2 >0 \nonumber \\
+    g(0,\pm 1) = g(\pm 1,0) = 4+1.6^2\times2 >0 \nonumber \\
+    g(\pm 1,\pm 1) = 4-4\times 1.6^2 <0 .
+\end{align}
+Therefore, $(0,0), (0,\pm 1), (\pm 1,0)$ are non-hyperbolic and $(\pm 1,\pm 1)$ are hyperbolic. 
+\hruleskip
+
+\end{document}

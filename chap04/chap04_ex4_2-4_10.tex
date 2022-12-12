@@ -1,0 +1,208 @@
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage[chap=4]{../ex}
+\newcommand{\vecop}[1]{\mathop{\rm vec}\left(#1\right)}
+
+\begin{document}
+
+\maketitle
+\subsection{4.2.}
+By taking derivatives of both sides of $f^{-1}\circ f(x) = x$, we obtain
+\begin{equation}
+    {\rm D}_{f(x)}(f^{-1})\cdot {\rm D}_x f = {\bf I}.
+\end{equation}
+\hruleskip
+
+\subsection{4.5.}
+Consider a characteristic polynomial 
+\begin{equation}
+    f(x) = x^2 - {\rm tr}(A)x + {\rm det}(A). 
+\end{equation}
+Its descriminant is ${\rm tr}(A)^2 - 4 {\rm det}(A) > 2^2-4 = 0$. 
+Moreover, $f(0) = 1>0$ and $f(1) = 2-{\rm tr}(A) <0$. Hence the two eigenvalues $\lambda_1, \lambda_2$ of $A$ are real and positive and satisfy $\lambda_1 < 1 < \lambda_2$. 
+\vskip 1.0em
+
+The matrix $A$ can be diagonalized as $A = P{\rm diag}(\lambda_1,\lambda_2)P^{-1}$ since the eigenvalues are distinct. 
+Let us define $y = P^{-1}x$. This conjugates $x\mapsto Ax$ and $y\mapsto {\rm diag}(\lambda_1,\lambda_2)y$. An orbit in the $y$-coordinate can be expressed as $(\lambda_1^ny_1(0), \lambda_2^ny_2(0))_{n\in \mathbb{Z}}, \ (y_1(0),y_2(0))\in \mathbb{R}^2$. The orbit belongs to $y_1y_2 = y_1(0)y_2(0)={\rm const}$, since $\lambda_1\lambda_2 = {\rm det}(A) = 1$. This is a hyperbola if $y_1(0)y_2(0) \neq 0$ and a line otherwise. An image of a linear transformation of a hyperbola (resp. a line) by a regular matrix $x = Py$ is a hyperbola (resp. a line). Thus each orbit of the linear map $x\mapsto Ax$ belongs to a hyperbola (or a line in a degenerate situation).  
+\hruleskip
+
+\subsection{4.10. (WIP)}
+This answer greatly relies on~\cite{beyn1998numerical} but somewhat elementalized and concretized. 
+\vskip 1.0em
+
+Let $f_1, f_2$ be $C^n$  
+\if0
+The Leibniz rule for the $n$-th derivative of their pointwise product $(f_1\cdot f_2)(x)$ is given as~\cite[Sec.~2.4]{abraham2012manifolds}\footnote{Note that $\left(\begin{array}{c}
+    k \\
+    i
+\end{array}\right)$ in the last expression in the page.~96 is redundant.}
+\begin{equation}
+    D^n \left(f_1 \cdot f_2 \right)(x)\left(h_1, \ldots, h_n\right)=\sum_{\pi \in \mathcal{P}_n} \left(D^{\left|\pi_1\right|} f_1(x) h_{\pi_1} \cdot D^{\left|\pi_2\right|} f_2(x) h_{\pi_2}\right). \label{eq: leibniz}
+\end{equation}
+Here, for any finite subset $\omega = \{\omega_1, \cdots , \omega_n \}$ of $\mathbb{N}$, let $|\omega|$ denote its cardinality and 
+\begin{equation}
+    h_{\omega} = (h_{\sigma(\omega_1)},\cdots,h_{\sigma(\omega_n)}), \quad h_{\emptyset} = 1, 
+\end{equation}
+where $\sigma$ is a permutation and $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$. Also, $\mathcal{P}_n$ is defined as 
+\begin{align}
+    \mathcal{P}_n=\left\{\pi=\left(\pi_1, \pi_2\right)\mid \pi_1, \pi_2 \subset\{1, \ldots, n\}, \pi_1 \cup \pi_2=\{1, \ldots, n\}, \pi_1 \cap \pi_2=\emptyset\right\}. 
+\end{align}
+Let 
+\fi
+and 
+\begin{align}
+    &\mathcal{Q}_k(\omega) = \left\{\pi=\left(\pi_1, \cdots, \pi_k \right)\mid 
+    \emptyset \neq \pi_i \subset \omega, \ \bigcup_{i=1}^k \pi_i=\omega, \ \pi_i \cap \pi_j=\emptyset \
+    \text{and} \ \min \pi_i<\min \pi_j \ \text{for all} \ i<j \right\}, \\
+    &\mathcal{Q}(\omega) = \bigcup_{k=1}^{|\omega|}\mathcal{Q}_k(\omega), \quad \mathcal{Q}(\emptyset) = \{\emptyset\}, \quad \mathcal{Q}(n) = \mathcal{Q}(\{1,\cdots,n\}).  
+\end{align}
+Then the Fa\'{a} di Bruno's formula is given as~\cite[Sec.~2.4]{abraham2012manifolds}\footnote{Note that how the sum is taken in the last expression in the page.~97 is somewhat vague.}
+\begin{equation}
+    D^n\left(f_1 \circ f_2\right)(x) \eta_\omega =\sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f_1\left(f_2(x)\right)\left(D^{\left|\pi_1\right|} f_2(x) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} f_2(x) \eta_{\pi_k}\right),  \label{eq: bruno}
+\end{equation}
+where for any $\pi=\left(\pi_1, \cdots, \pi_k \right)$ let $|\pi|=k$ denote its length and for any finite subset $\omega = \{\omega_1, \cdots , \omega_n \}$ of $\mathbb{N}$, 
+\begin{equation}
+    \eta_{\omega} = (\eta_{\sigma(\omega_1)},\cdots,\eta_{\sigma(\omega_n)}) 
+\end{equation}
+where $\sigma$ is a permutation and $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$.
+\vskip 1.0em
+
+Let $\tilde{g}(x):=(x,g(x))$. We take the $n$-th derivatives of the both sides of 
+\begin{equation}
+    g\circ f^{\rm s}(\eta,g(\eta)) = f^{\rm u}(\eta,g(\eta)) \Leftrightarrow g\circ f^{\rm s} \circ \tilde{g}(\eta) = f^{\rm u} \circ \tilde{g}(\eta)
+\end{equation}
+and apply the rule (\ref{eq: bruno}). 
+\begin{align}
+    &\text{(l.h.s):} \ D^n (g\circ f^{\rm s} \circ \tilde{g})(0)(\eta_1,\cdots,\eta_n) \nonumber \\
+    & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k (g\circ f^{\rm s})\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right) \nonumber \\
+    & = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_1}
+    , \right. \nonumber \\ 
+    &\hspace{4cm} \ldots, \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_l}\right) \\
+    &\text{(r.h.s):} \ D^n (f^{\rm u} \circ \tilde{g})(0)(\eta_1,\cdots,\eta_n) \nonumber \\
+    &= \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right). 
+\end{align}
+Here, we defined  
+\begin{equation}
+    \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\omega} =
+     \left( D^{\left|\pi_{\sigma(\omega_1)}\right|} \tilde{g}(0) \eta_{\pi_{\sigma(\omega_1)}},\cdots, D^{\left|\pi_{\sigma(\omega_n)}\right|} \tilde{g}(0) \eta_{\pi_{\sigma(\omega_n)}} \right),
+\end{equation}
+where $\sigma(\omega_1)< \cdots < \sigma(\omega_n)$. 
+Thus we obtain 
+\begin{equation}
+    \begin{aligned}
+        &\sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} \sum_{\substack{\tau \in \mathcal{Q}(k) \\
+    (l:=|\tau|)}} D^l g (0) \left(D^{\left|\tau_1\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_1}
+    , \ldots , \right. \\
+    & \left. D^{\left|\tau_l\right|} f^{\rm s}(0) \left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right)_{\tau_l}\right) = \sum_{\substack{\pi \in \mathcal{Q}(n) \\
+    (k:=|\pi|)}} D^k f^{\rm u}\left(0\right)\left(D^{\left|\pi_1\right|} \tilde{g}(0) \eta_{\pi_1}, \ldots, D^{\left|\pi_k\right|} \tilde{g}(0) \eta_{\pi_k}\right).
+    \end{aligned} \label{eq: manieq}
+\end{equation}
+\vskip 1.0em
+
+Let $D_{\rm s}, D_{\rm u}$ denote differentiation w.r.t $E^{\rm s}, E^{\rm u}$ respectively. Let $x_1 \in E^{\rm s}, x_2 \in E^{\rm u}$. The linearization of the mapping $f$ at the origin is 
+\begin{equation}
+    Df(0)\left(\begin{array}{c}
+        x_1 \\
+        x_2
+    \end{array}\right) = \left(\begin{array}{cc}
+        D_{\rm s}f^{\rm s}(0) & D_{\rm u}f^{\rm s}(0) \\
+        D_{\rm s}f^{\rm u}(0) & D_{\rm u}f^{\rm u}(0)
+    \end{array}\right)\left(\begin{array}{c}
+        x_1 \\
+        x_2
+    \end{array}\right).
+\end{equation}
+The linearized dynamics is invariant on $E^{\rm s}$ and $E^{\rm u}$, thus 
+\begin{equation}
+    D_{\rm u}f^{\rm s}(0) = 0, D_{\rm s}f^{\rm u}(0)=0. 
+\end{equation}
+Let us denote $A_{\rm s}:= D_{\rm s}f^{\rm s}(0), A_{\rm u}:= D_{\rm u}f^{\rm u}(0)$. By definition $\sigma({A_{\rm s}})$ (resp. $\sigma({A_{\rm u}})$) is included inside (resp. outside) the unit circle, where $\sigma(A)$ is the spectrum of $A$.  
+\vskip 1.0em
+
+Let us derive a few concrete $n$-th order equations from (\ref{eq: manieq}). 
+\vskip 1.0em
+
+We can see that 
+\begin{align}
+    &D f^{\rm s}(0)D\tilde{g}(0) = \left( D_{\rm s}f^{\rm s}(0) \ D_{\rm u}f^{\rm s}(0)\right) \left(\begin{array}{c}
+        I \\
+        Dg(0)        
+    \end{array}\right) = A_{\rm s}, \\
+    &D f^{\rm u}(0)D\tilde{g}(0) = A_{\rm u}Dg(0). 
+\end{align}  
+Thus the first order equation is equivalent to the Sylvester equation 
+\begin{equation}
+    Dg(0)A_{\rm s}\eta - A_{\rm u}Dg(0)\eta =0. \label{eq: firstsyl}
+\end{equation}
+\vskip 1.0em
+
+To analyze and solve the Sylvester equation, we resort to the trick of the Kronecker form. 
+Let us denote a space of $n$-multilinear maps of $E_1,\cdots,E_n$ to $E_0$ by $\mathcal{L}(E_1,\cdots,E_n;E_0)$. 
+For $\nu = 1,\cdots, n$ let $(e_{\nu,1},\cdots,e_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be an ordered basis of $E_\nu$ and let $(e^*_{\nu,1},\cdots,e^*_{\nu,\mathop{\rm dim}{E_{\nu}}})$ be its dual. Then the space $\mathcal{L}(E_1,\cdots,E_n;E_0) = E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$, where $\otimes$ means a tensor product, has a basis 
+\begin{equation}
+    (e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0})_{(r_n,\cdots,r_0)}, \quad (r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}. \label{eq: tensorrepbasis}
+\end{equation}
+We order the basis (\ref{eq: tensorrepbasis}) lexicographically with priority to the first components of $(r_n,\cdots,r_0)$. A multilinear map $\tilde{U}\in \mathcal{L}(E_1,\cdots,E_n;E_0)$ has a coordinate representation $U\in \mathbb{R}^{\mathop{\rm dim}{E_0} \times \mathop{\rm dim}{E_1^*} \times \cdots\times\mathop{\rm dim}{E_n^*}}$ as 
+\begin{equation}
+    \tilde{U} = \sum_{(r_n\cdots,r_0)\in \prod_{k=n}^0{\{1,\cdots,\mathop{\rm dim}{E_{k}}\}}} U_{r_0r_1\cdots r_n} e^*_{n,r_n}\otimes\cdots\otimes e^*_{1,r_1}\otimes e_{0,r_0}. 
+\end{equation}
+Let ${\rm vec}: \mathbb{R}^{J_1\times\cdots \times J_N} \to \mathbb{R}^{\prod_{i=1}^N{J_i}}$ be a vectorization operator
+\begin{equation}
+    ({\rm vec}(U))_i = U_{j_1\cdots j_{N}} \quad {\text with} \quad i = 1+\sum_{l=1}^N\left[(j_l -1)\prod_{l'=1}^{l-1}J_{l'} \right]. 
+\end{equation}
+By $U\times_n A \in \mathbb{R}^{J_1\times\cdots J_{n-1}\times I \times J_{n+1} \times \cdots \times J_N}$ we denote an $n$-mode product of a tensor~\cite{kolda2006multilinear} $U\in \mathbb{R}^{J_1\times\cdots \times J_N}$ with a matrix $A\in \mathbb{R}^{I\times J_n}$, defined as 
+\begin{equation}
+    (U\times_n A)_{j_1\cdots j_{n-1} i j_{n+1}\cdots j_N} = \sum_{j_n = 1}^{J_n}U_{j_1\cdots j_N}A_{i j_n}.
+\end{equation}
+An action of $\tilde{U}\in E_n^*\otimes\cdots\otimes E_1^*\otimes E_0$ on $(\tilde{h}_1,\cdots,\tilde{h}_n, \tilde{h}^*_0)\in \prod_{i=1}^n{E^n\times E^*_0}$ is rewritten in the coordinate representation as $U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*$. The ${\rm vec}$ operation on this representation provides a convenient Kronecker form (this is a special case of~\cite[Proposition~3.7~(b)]{kolda2006multilinear})
+\begin{equation}
+    {\rm vec}(U\times_1 h_0^* \times_2 h_1^* \times_3 \cdots \times_{n+1} h_n^*) = (h_n^*\otimes \cdots \otimes h_1^* \otimes h_0^*) {\rm vec}(U), \label{eq: vecop}
+\end{equation}
+where $\otimes$ denotes the Kronecker product. In the following, we identify any multilinear map and elements in $E^{\rm s}, E^{\rm u}$ as their coordinate representation. 
+\vskip 1.0em
+
+Let $p=\mathop{\rm dim}{E^{\rm s}}, q=\mathop{\rm dim}{E^{\rm u}}$. 
+From (\ref{eq: firstsyl}), it is obvious that for any $\eta_0^\top\in E^{{\rm u}*}, \eta_1 \in E^{\rm s}$ 
+\begin{align}
+    &\eta_0^\top Dg(0)A_{\rm s}\eta_1 - \eta_0^\top A_{\rm u}Dg(0)\eta_1 =0 \nonumber \\
+    &\Leftrightarrow \vecop{Dg(0)\times_1 \eta_0^\top \times_2 \eta_1^\top A_{\rm s}^\top} - \vecop{Dg(0)\times_1 \eta_0^\top A_{\rm u} \times_2 \eta_1^\top}=0 \quad (\because {\rm vec}(\cdot) \ \text{is linear}) \nonumber \\
+    &\Leftrightarrow (\eta_1^\top A_{\rm s}^\top \otimes \eta_0^\top I_q - \eta_1^\top I_p \otimes \eta_0^\top A_{\rm u})\vecop{Dg(0)} = 0 \quad (\because (\ref{eq: vecop})) \nonumber \\
+    &\Leftrightarrow (\eta_1^\top\otimes \eta_0^\top)\cdot (A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}) \vecop{Dg(0)} = 0 \quad (\because (AB)\otimes(CD)=(A\otimes C)\cdot(B\otimes D)) \nonumber \\
+    &\Leftrightarrow (A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}) \vecop{Dg(0)} = 0 \quad (\because \eta_0, \eta_1 \text{ are arbitrary}). 
+\end{align}
+The following theorem is well-known~\cite[Thm.~4.4.5]{roger1994topics}. 
+\begin{theorem}\label{thm: kronsum}\mbox{}\\
+    If $\sigma (A)=\{ \lambda_1,\cdots,\lambda_n\}, \sigma (B)=\{ \mu_1,\cdots,\mu_m \}$, then $\sigma(I_m\otimes A+B\otimes I_n) = \{ \lambda_i+\mu_j \mid i\in\{ 1,\cdots,n \}, j\in \{1,\cdots,m\} \}$. 
+\end{theorem}
+This implies $A_{\rm s}^\top\otimes I_q - I_p \otimes A_{\rm u}$ is regular since $\sigma({A_{\rm s}})$ (resp. $\sigma({A_{\rm u}})$) is included inside (resp. outside) the unit circle. Therefore $Dg(0) = 0$. 
+\vskip 1.0em
+
+The second order equation of (\ref{eq: manieq}) is 
+\begin{equation}
+    D^2g(0)(A_{\rm s}\eta_1,A_{\rm s}\eta_2) - Df^{\rm u}(0)D^2\tilde{g}(0)(\eta_1,\eta_2) = D^2f^{\rm u}(0)(D\tilde{g}(0)\eta_1,D\tilde{g}(0)\eta_2). 
+\end{equation}
+In the second term of the l.h.s., the first $p$ columns of $Df^{\rm u}(0)$ are zeros, so the first $p$ mode-$1$ slices of $D^2\tilde{g}(0)$ do not contribute to the term, i.e., $Df^{\rm u}(0)D^2\tilde{g}(0)(\eta_1,\eta_2) = A_{\rm u}D^2g(0)(\eta_1,\eta_2)$. Also, components of $D^2f^{\rm u}(0)$ of indices larger than $p+1$ do not contribute to the r.h.s.~since $Dg(0)=0$. Namely, $D^2f^{\rm u}(0)(D\tilde{g}(0)\eta_1,D\tilde{g}(0)\eta_2)=D_{\rm s}^2f^{\rm u}(0)(\eta_1,\eta_2)$. Then we obtain a multilinear Sylvester equation. For any $\eta_0^\top\in E^{{\rm u}*}, \eta_1, \eta_2 \in E^{\rm s}$ 
+\begin{align}
+    &\eta_0^\top D^2g(0)(A_{\rm s}\eta_1,A_{\rm s}\eta_2)  - \eta_0^\top A_{\rm u}D^2g(0)(\eta_1,\eta_2) =\eta_0^\top D_{\rm s}^2f^{\rm u}(0)(\eta_1,\eta_2) \nonumber \\
+    &\Leftrightarrow (A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u}) \vecop{D^2g(0)} = \vecop{D_{\rm s}^2f^{\rm u}(0)} \quad (\because \eta_0, \eta_1, \eta_2 \text{ are arbitrary}).
+\end{align}
+The theorem \ref{thm: kronsum} and the following one~\cite[Thm.~4.2.12]{roger1994topics} 
+\begin{theorem}\label{thm: kronprod}\mbox{}\\
+    If $\sigma (A)=\{ \lambda_1,\cdots,\lambda_n\}, \sigma (B)=\{ \mu_1,\cdots,\mu_m \}$, then $\sigma(A\otimes B) = \{ \lambda_i\mu_j \mid i\in\{ 1,\cdots,n \}, j\in \{1,\cdots,m\} \}$. 
+\end{theorem}
+lead to the regularity of $(A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u})$. Thus we obtain
+\begin{equation}
+    D^2g(0) = {\rm vec}^{-1}\left[(A_{\rm s}^\top \otimes A_{\rm s}^\top \otimes I_q - I_{p^2}\otimes A_{\rm u})^{-1}\vecop{D_{\rm s}^2f^{\rm u}(0)}\right].
+\end{equation} 
+\vskip 1.0em
+
+Similarly, the higher order equation of (\ref{eq: manieq}) lead to a multilinear Sylvester equation of a unique solution, which can be explicitly written using a more complicated Kronecker form.    
+
+\bibliography{chap04}
+\bibliographystyle{unsrt}
+\end{document}

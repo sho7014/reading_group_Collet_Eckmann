@@ -37,5 +37,31 @@ We evaluate $g$ on the fixed points as
 Therefore, $(0,0)$ is non-hyperbolic and the others are hyperbolic. 
 \hruleskip
 
+\subsection{4.20.}
+We take inner product with $\xi-\eta$ on both sides of $\xi=\eta+(\xi-\eta)$ as 
+\begin{align}
+    &(\xi-\eta,\xi) = (\xi-\eta,\eta)+||\xi-\eta||^2 \nonumber \\
+    &\Leftrightarrow 2-2\cos{\theta} = ||\xi-\eta||^2. \label{eq: thetaineq}
+\end{align}
+Then 
+\begin{align}
+    &||A\xi - A\eta||^2 = ||A\xi||^2+||A\eta||^2-2(A\xi,A\eta) \ge ||A\xi||^2+||A\eta||^2-2||A\xi||\cdot||A\eta|| = (\varrho^{-1}-\varrho)^2 \\
+    &||A\xi - A\eta||^2 \le ||A||_2^2||\xi-\eta||^2=||A||_2^2(2-2\cos{\theta}) \ (\because \text{Eq.~}(\ref{eq: thetaineq})). 
+\end{align}
+Thus the desired inequality is derived. 
+\hruleskip
+
+\subsection{4.21.}
+Let $v=\xi+\eta, \xi \in E^{\rm u}, \eta \in E^{\rm s}$. Let $\lambda_{\rm s}, C_{\rm s}$ (resp. $\lambda_{\rm u}, C_{\rm u}$) be constants which make all tangent vectors in $E^{\rm s}$ (resp. $E^{\rm u}$) stable and define $C = \max{(C_{\rm s},C_{\rm u})}$ and $\lambda = \max{(\lambda_{\rm s},\lambda_{\rm u})}$. Also let $P_{\rm s}, P_{\rm u}$ be projections onto $E^{\rm s}, E^{\rm u}$. 
+\begin{align}
+    &\langle v,v \rangle \ge ||\xi||^2 + ||\eta||^2 \ge ||\xi+\eta||^2 = (v,v), \\
+    &\langle v,v \rangle \le \frac{C_{\rm s}^2||\xi||^2}{1-\lambda_{\rm s}^{2\epsilon}} + \frac{C_{\rm u}^2||\eta||^2}{1-\lambda_{\rm u}^{2\epsilon}} \le \frac{C^2}{1-\lambda^{2\epsilon}}(||\xi||^2 + ||\eta||^2) = \frac{C^2}{1-\lambda^{2\epsilon}}(||P_{\rm u}v||^2 + ||P_{\rm s}v||^2) \nonumber \\
+    &\le \frac{C^2}{1-\lambda^{2\epsilon}}(||P_{\rm u}||_2^2 + ||P_{\rm s}||_2^2)(v,v). 
+\end{align}
+Thus we can take $D = \max{\left(1,\frac{C^2}{1-\lambda^{2\epsilon}}(||P_{\rm u}||_2^2 + ||P_{\rm s}||_2^2)\right)}$.
+\hruleskip
+
+\subsection{4.22.(WIP)}
+$C^2$ regularity of $f$ gives rise to $||Q(x)||\le \mathcal{O}(1)||x||^2$, which follows from the mean value form of the remainder of the Taylor's theorem. 
 
 \end{document}

@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[truedimen,top=20mm,bottom=20mm,left=10mm,right=10mm]{geometry}
 \usepackage[dvipdfmx,colorlinks]{hyperref}
+\usepackage{docmute}
+\usepackage{ifthen}
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
 
@@ -35,6 +37,12 @@
 }
 \makeatother
 
-\newcommand{\hruleskip}{\vskip 1.0em \hrule \vskip 1.0em}
+\newboolean{printBibInSubfiles}
+\setboolean{printBibInSubfiles}{true}
+\newcommand{\bib}[1]{\ifthenelse{\boolean{printBibInSubfiles}}
+{\bibliographystyle{unsrt}\bibliography{#1}}
+{}}
 
+\newcommand{\hruleskip}{\vskip 1.0em \hrule \vskip 1.0em}
 \renewcommand{\thesubsection}{Exercise\hspace{-6.0pt}}
+\newcommand{\vecop}[1]{\mathop{\rm vec}\left(#1\right)}

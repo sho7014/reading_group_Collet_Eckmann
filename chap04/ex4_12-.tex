@@ -61,7 +61,30 @@ Let $v=\xi+\eta, \xi \in E^{\rm u}, \eta \in E^{\rm s}$. Let $\lambda_{\rm s}, C
 Thus we can take $D = \max{\left(1,\frac{C^2}{1-\lambda^{2\epsilon}}(||P_{\rm u}||_2^2 + ||P_{\rm s}||_2^2)\right)}$.
 \hruleskip
 
-\subsection{4.22.(WIP)}
-$C^2$ regularity of $f$ gives rise to $||Q(x)||\le \mathcal{O}(1)||x||^2$, which follows from the mean value form of the remainder of the Taylor's theorem. 
+\subsection{4.22.}
+ Let $M=\max_{||x||\le \epsilon}{||D^2Q(x)||}, N = \max_{||x||\le \epsilon}{||D\varphi(x/\epsilon)||}$. These maxima exist because $D^2Q, D\varphi$ are continuous and the closed ball is compact. The Taylor theorem for $Q\in C^2$~[Sec.~4.5]\cite{zeidler2012applied} says that
+\begin{align}
+    &Q(x) = Q(0) + DQ(0)x + R_1(x) = R_1(x) \ (\because Q(0)=0, DQ(0)=0), \\
+    &DQ(x) = DQ(0) + R_2(x) = R_2(x),
+\end{align}
+where $R_1, R_2$ are remainder terms. For $x$ in the closed ball of radius $\epsilon$, the mean value inequalities for the remainder terms~[Thm.~4.C]\cite{zeidler2012applied} lead to 
+\begin{align}
+    &||Q(x)|| = ||R_1(x)|| \le \frac{1}{2!}\sup_{0\le\tau\le 1}{||D^2Q(\tau x)(x,x)||}\le \frac{1}{2!}\sup_{0\le\tau\le 1}{||D^2Q(\tau x)}|| \cdot ||x|| \cdot ||x|| \le \frac{M}{2}||x|| \cdot ||x|| \nonumber \\
+    & \le \frac{M\epsilon^2}{2} \\
+    &||DQ(x)|| = ||R_2(x)|| \le \sup_{0\le\tau\le 1}{||D^2Q(\tau x)x||} \le M ||x|| \le M\epsilon.
+\end{align}
+The differential of $Q_\epsilon$ is 
+\begin{equation}
+    DQ_\epsilon(x) = \frac{1}{\epsilon}D\varphi(x/\epsilon)Q(x) + \varphi(x/\epsilon)DQ(x).
+\end{equation}
+Then 
+\begin{equation}
+    ||DQ_\epsilon(x)|| \le \frac{1}{\epsilon} || D\varphi(x/\epsilon) ||\cdot ||Q(x)|| + ||\varphi(x/\epsilon)||\cdot ||DQ(x)||
+    \le \frac{M(2M+N)}{2}\epsilon.
+\end{equation}
+\hruleskip
 
+\subsection{4.23.}
+
+\bib{chap04}
 \end{document}

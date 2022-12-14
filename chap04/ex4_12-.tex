@@ -85,6 +85,59 @@ Then
 \hruleskip
 
 \subsection{4.23.}
+($\mathscr{H}_\alpha$ is a normed vector space) If $\beta, \gamma \in \mathbb{R}$ and $f, g \in \mathscr{H}_\alpha$, Then
+\begin{align}
+    &||\beta f + \gamma g||_{\mathscr{H}_\alpha} = \sup_{x\neq y}\frac{||\beta(f(x)-f(y))+\gamma(g(x)-g(y))||}{||x-y||^\alpha} \le \sup_{x\neq y}\frac{\beta||f(x)-f(y)||}{||x-y||^\alpha} + \sup_{x\neq y}\frac{\gamma||g(x)-g(y)||}{||x-y||^\alpha} \nonumber \label{eq: holderbd} \\
+    & < \infty. \\
+    &\beta f(0) + \gamma g(0) = 0. 
+\end{align}
+So, $\beta f + \gamma g \in \mathscr{H}_\alpha$. Also, Eq. (\ref{eq: holderbd}) for $\beta=\gamma=1$ includes the triangle inequality. The other conditions to be a norm is trivial. Hence $\mathscr{H}_\alpha$ is a normed vector space. 
+\vskip 1.0em
+
+(Completeness) Consider a Cauchy sequence $\{f_n\}_{n=1}^\infty$ in $\mathscr{H}_\alpha$. This is also Cauchy in a space of continuous functions endowed with sup-norm, say, $BC(E)$. $BC(E)$ is complete, so the sequence has a limit in $BC(E)$. We denote the limit as $f$.
+
+Every Cauchy sequence in a metric space is bounded, so $||f_n||_{\mathscr{H}_\alpha} \le M$ for all $n\in \mathbb{N}$ and some $M\in\mathbb{R}$. Hence
+\begin{equation}
+    ||f||_{\mathscr{H}_\alpha} = \lim_{n\to \infty}||f_n||_{\mathscr{H}_\alpha} \ (\because \text{the norm is continuous}) \le M < \infty. 
+\end{equation}
+Therefore $f \in \mathscr{H}_\alpha$. 
+
+Next, we show $f_n\to f$ in $\mathscr{H}_\alpha$. For any $\epsilon >0$, there exists $N>0$ such that $||f_p-f_q||_{\mathscr{H}_\alpha}<\epsilon$ whenever $p, q \ge N$ since $\{f_n\}$ is Cauchy. Then for any $n\ge N$
+\begin{align}
+    ||f-f_n||_{\mathscr{H}_\alpha} = \lim_{m\to\infty}{||f_m-f_n||_{\mathscr{H}_\alpha}} \ (\because \text{ the norm is continuous}) \le \epsilon. 
+\end{align}
+Thus $f_n\to f$ in $\mathscr{H}_\alpha$. 
+
+Therefore $\mathscr{H}_\alpha$ is complete. 
+\hruleskip
+
+\subsection{4.24.}
+$R^{\rm u}(0,0)=0, R^{\rm s}(0,0)=0$ since $R \in \mathscr{H}_\alpha$. Hence
+\begin{align}
+    &\Psi^{\rm u}(R)(0,0)= (L^{\rm u})^{-1}R^{\rm u}(0,0) - (L^{\rm u})^{-1}Q_{\epsilon}^{\rm u}(0,0) = 0 \ (\because Q(0) = 0)  \nonumber \\
+    &\Psi^{\rm s}(R)(0,0)= L^{\rm s}R^{\rm s}(0,0)+Q_{\epsilon}^{\rm s}(0,0) = 0.
+\end{align}
+\hruleskip
+
+\subsection{4.25.}
+The $C^2$ regularity is used to prove $||DQ_\epsilon||\le C\epsilon$. This inequality is used to bound $||\Psi(r)-\Psi(r')||_{\mathscr{H}_\alpha}$. To derive the inequality regarding $||\Psi(r)-\Psi(r')||_{\mathscr{H}_\alpha}$, $Q_\epsilon$ need not satisfy $||DQ_\epsilon||\le C\epsilon$. Instead, it is enough for $Q_\epsilon$ to be Lipschitz continuous of its Lipschitz constant $C\epsilon$.  
+\vskip 1.0em
+
+$Q$ is $C^1$, so for $x$ in the closed ball of radius $\epsilon$, the mean value inequalities for the remainder terms~[Thm.~4.C]\cite{zeidler2012applied} lead to 
+\begin{equation}
+    ||Q(x)||\le M\epsilon
+\end{equation}
+for some $M>0$. $Q_{\epsilon}$ is zero outside the closed ball, so we can limit us to consider the ball to evaluate the Lipschitz constant. For $x,y$ in the closed ball, 
+\begin{align}
+    &||Q_\epsilon(x)-Q_\epsilon(y)|| = ||\varphi(x/\epsilon)Q(x)-\varphi(y/\epsilon)Q(y)|| \nonumber \\
+    &\le ||\varphi(x/\epsilon)-\varphi(y/\epsilon)||\cdot ||Q(x)|| + ||\varphi(y/\epsilon)||\cdot ||Q(x)-Q(y)|| \nonumber \\
+    & \le (||\varphi(x/\epsilon)|| + ||\varphi(y/\epsilon)||)\cdot ||Q(x)|| + ||\varphi(y/\epsilon)||\cdot (||Q(x)||+||Q(y)||) \nonumber \\
+    &\le 4M\epsilon.
+\end{align}
+Thus $Q_\epsilon$ is Lipschitz continuous of its Lipschitz constant $C\epsilon$, where $C$ can be taken as $4M$. 
+\hruleskip
+
+\subsection{4.35.}
 
 \bib{chap04}
 \end{document}

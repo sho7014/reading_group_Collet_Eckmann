@@ -123,18 +123,25 @@ $R^{\rm u}(0,0)=0, R^{\rm s}(0,0)=0$ since $R \in \mathscr{H}_\alpha$. Hence
 The $C^2$ regularity is used to prove $||DQ_\epsilon||\le C\epsilon$. This inequality is used to bound $||\Psi(r)-\Psi(r')||_{\mathscr{H}_\alpha}$. To derive the inequality regarding $||\Psi(r)-\Psi(r')||_{\mathscr{H}_\alpha}$, $Q_\epsilon$ need not satisfy $||DQ_\epsilon||\le C\epsilon$. Instead, it is enough for $Q_\epsilon$ to be Lipschitz continuous of its Lipschitz constant $C\epsilon$.  
 \vskip 1.0em
 
-$Q$ is $C^1$, so for $x$ in the closed ball of radius $\epsilon$, the mean value inequalities for the remainder terms~[Thm.~4.C]\cite{zeidler2012applied} lead to 
+Let $\mathcal{B}_\epsilon$ be a closed ball of radius $\epsilon$ centered at the origin. Every continuous functions on a compact domain is globally Lipschitz, so $DQ$ is globally Lipschitz on $\mathcal{B}_\epsilon$. Let $K$ be the Lipschitz constant of $DQ$, then for all $x \in \mathcal{B}_\epsilon$ 
 \begin{equation}
-    ||Q(x)||\le M\epsilon
+    ||DQ(x)|| = ||DQ(x) - DQ(0)|| \le K||x|| \le K\epsilon. 
 \end{equation}
-for some $M>0$. $Q_{\epsilon}$ is zero outside the closed ball, so we can limit us to consider the ball to evaluate the Lipschitz constant. For $x,y$ in the closed ball, 
+Let $L$ be the Lipschitz constant of $Q$ on $\mathcal{B}_\epsilon$, then~\cite[Lem.~3.1]{pathak2018introduction}
+\begin{equation}
+    L = \sup_{x\in\mathcal{B}_\epsilon}||DQ(x)||\le K\epsilon.
+\end{equation}
+For $x, y \in \mathcal{B}_\epsilon$, the mean value inequalities for the remainder terms lead to 
+\begin{align}
+    ||Q(x)||\le \sup_{0\le \tau \le 1}{||DQ(\tau x)x||}\le K\epsilon^2.
+\end{align}
+Let $M$ be the global Lipschitz constant of $\varphi$ on $\mathcal{B}_1$. $Q_{\epsilon}$ is zero outside the closed ball, so we can limit us to consider the ball to evaluate the Lipschitz constant. For $x,y \in \mathcal{B}_\epsilon$, 
 \begin{align}
     &||Q_\epsilon(x)-Q_\epsilon(y)|| = ||\varphi(x/\epsilon)Q(x)-\varphi(y/\epsilon)Q(y)|| \nonumber \\
     &\le ||\varphi(x/\epsilon)-\varphi(y/\epsilon)||\cdot ||Q(x)|| + ||\varphi(y/\epsilon)||\cdot ||Q(x)-Q(y)|| \nonumber \\
-    & \le (||\varphi(x/\epsilon)|| + ||\varphi(y/\epsilon)||)\cdot ||Q(x)|| + ||\varphi(y/\epsilon)||\cdot (||Q(x)||+||Q(y)||) \nonumber \\
-    &\le 4M\epsilon.
+    & \le \frac{M}{\epsilon}||x-y||K\epsilon^2+1\cdot K\epsilon||x-y||=K(M+1)\epsilon||x-y||
 \end{align}
-Thus $Q_\epsilon$ is Lipschitz continuous of its Lipschitz constant $C\epsilon$, where $C$ can be taken as $4M$. 
+Thus $Q_\epsilon$ is Lipschitz continuous of its Lipschitz constant $C\epsilon$, where $C$ can be taken as $K(M+1)$. 
 \hruleskip
 
 \subsection{4.35.}

@@ -37,7 +37,7 @@ We evaluate $g$ on the fixed points as
 Therefore, $(0,0)$ is non-hyperbolic and the others are hyperbolic. 
 \hruleskip
 
-\subsection{4.20.}
+\subsection{4.20.}\label{ex: 420}
 We take inner product with $\xi-\eta$ on both sides of $\xi=\eta+(\xi-\eta)$ as 
 \begin{align}
     &(\xi-\eta,\xi) = (\xi-\eta,\eta)+||\xi-\eta||^2 \nonumber \\
@@ -51,7 +51,7 @@ Then
 Thus the desired inequality is derived. 
 \hruleskip
 
-\subsection{4.21.}
+\subsection{4.21.}\label{ex: 421}
 Let $v=\xi+\eta, \xi \in E^{\rm u}, \eta \in E^{\rm s}$. Let $\lambda_{\rm s}, C_{\rm s}$ (resp. $\lambda_{\rm u}, C_{\rm u}$) be constants which make all tangent vectors in $E^{\rm s}$ (resp. $E^{\rm u}$) stable and define $C = \max{(C_{\rm s},C_{\rm u})}$ and $\lambda = \max{(\lambda_{\rm s},\lambda_{\rm u})}$. Also let $P_{\rm s}, P_{\rm u}$ be projections onto $E^{\rm s}, E^{\rm u}$. 
 \begin{align}
     &\langle v,v \rangle \ge ||\xi||^2 + ||\eta||^2 \ge ||\xi+\eta||^2 = (v,v), \\
@@ -145,6 +145,31 @@ Thus $Q_\epsilon$ is Lipschitz continuous of its Lipschitz constant $C\epsilon$,
 \hruleskip
 
 \subsection{4.35.}
+Let us assume $\Lambda$ is compact (at the beginning of this chapter, the compactness of $M$ is assumed but seems frequently violated (for example, $M=\mathbb{R}^n$)). In fact, in many literatures a uniformly hyperbolic set is defined to be compact. 
+\vskip 1.0em
+
+Let $||\cdot ||_{{\rm T}_xM}$ be an arbitrary norm and $||\cdot ||_{*, {\rm T}_xM}$ be is associated Lyapunov metric. Let $n_0\in \mathbb{N}$ such that $C\lambda^{n_0}<1$ in the Definition 4.~16 in the text\footnote{Note that $C>0$ is independent of $x \in \Lambda$ for a uniformly hyperbolic set. This seems implicitly assumed in the text. }. Then, as in the solution of \myref{ex: 420}, we obtain
+\begin{equation}
+    1-\cos{\theta_x} \ge \frac{(C^{-1}\lambda^{-n_0}-C\lambda^{n_0})^2}{||D_xf^{n_0}||_2^2}, \label{eq: angleineq}
+\end{equation}
+where $\theta_x$ is the angle between $E_x^{\rm s}$ and $E_x^{\rm u}$. $||D_xf^{n_0}||_2^2$ is bounded above on $\Lambda$ since $\Lambda$ is compact. Hence the r.h.s of~(\ref{eq: angleineq}) is uniformly bounded away from zero on $\Lambda$. Let $\mu \in (0,1)$ be a ($x$-independent) lower bound of the r.h.s.  
+\vskip 1.0em
+
+Let $v=\xi+\eta, \xi\in E_x^{\rm u}, \eta\in E_x^{\rm s}$. As in the solution of \myref{ex: 421}, 
+\begin{equation}
+    ||v||_{{\rm T}_xM} \le ||v||_{*, {\rm T}_xM}.
+\end{equation}
+Also, 
+\begin{align}
+    &||v||_{{\rm T}_xM}  = ||\xi||^2_{{\rm T}_xM}+||\eta||^2_{{\rm T}_xM}-2\cos{\theta_x}||\xi||_{{\rm T}_xM}||\eta||_{{\rm T}_xM} \nonumber \\
+    &\ge ||\xi||^2_{{\rm T}_xM}+||\eta||^2_{{\rm T}_xM}-2(\mu -1)||\xi||_{{\rm T}_xM}||\eta||_{{\rm T}_xM} = (1-\mu)||\xi-\eta||^2_{{\rm T}_xM} + \mu(|\xi||^2_{{\rm T}_xM}+||\eta||^2_{{\rm T}_xM}) \nonumber \\
+    &\ge \mu(|\xi||^2_{{\rm T}_xM}+||\eta||^2_{{\rm T}_xM}). \label{eq: ineqvvstdot}
+\end{align}
+Then 
+\begin{align}
+    &||v||_{*, {\rm T}_xM} \le \frac{C^2}{1-\lambda^{2\epsilon}}(||\xi||^2_{{\rm T}_xM}+||\eta||^2_{{\rm T}_xM})\le \frac{C^2}{\mu(1-\lambda^{2\epsilon})}||v||_{{\rm T}_xM}. \label{eq: ineqvvstdot2}
+\end{align}
+$C, \mu, \lambda, \epsilon$ are independent of $x\in \Lambda$. Hence, from (\ref{eq: ineqvvstdot}, \ref{eq: ineqvvstdot2}), the Lyapunov metric is uniformly equivalent to the original one. 
 
 \bib{chap04}
 \end{document}

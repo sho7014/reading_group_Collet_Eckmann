@@ -7,6 +7,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{mathrsfs}
 \usepackage{bm}
+\usepackage{nameref}
 
 \usepackage{amsthm}
 \theoremstyle{definition}
@@ -46,4 +47,5 @@
 
 \newcommand{\hruleskip}{\vskip 1.0em \hrule \vskip 1.0em}
 \renewcommand{\thesubsection}{Exercise\hspace{-6.0pt}}
+\newcommand\myref[1]{\ref{#1}\hspace{0.5em} \nameref{#1}}
 \newcommand{\vecop}[1]{\mathop{\rm vec}\left(#1\right)}

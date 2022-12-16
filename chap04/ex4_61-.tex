@@ -1,0 +1,72 @@
+\documentclass[a4paper,11pt,fleqn]{article}
+\usepackage[chap=4]{../ex}
+
+\begin{document}
+
+\maketitle
+\subsection{4.61.}
+Let us define $\mathcal{B}, ||\cdot||_{\mathcal{B}}, A$ as in the proof of the Theorem~4.63 in the text. Let $U_{\epsilon'}$ be a $\epsilon'$-neighborhood of $\Lambda$. Then, for any ${\bf y} \in U_{\epsilon'}^{\mathbb{Z}}$, there exists ${\bf x} \in \Lambda^{\mathbb{Z}}$ such that
+\begin{equation}
+    ||{\bf y}-{\bf x}||_{\mathcal{B}} \le \epsilon'. \label{eq: closexy}
+\end{equation} 
+Suppose ${\bf y}$ is an $\epsilon'$-pseudo orbit lying in $U_{\epsilon'}$, i.e.,
+\begin{equation}
+    ||A{\bf y}-{\bf y}||_{\mathcal{B}} \le \epsilon'.
+\end{equation}
+$||Df||$ attains is maximum in $\Lambda$ since $Df$ is continuous and $\Lambda$ is compact. We denote the maximum as $M$. Then 
+\begin{align}
+    &\sup_{i\in\mathbb{Z}}{||f(x_i)-f(y_i)||} = \sup_{i\in\mathbb{Z}}{||f(x_i)-f(x_i-x_i+y_i)||} \nonumber \\
+    &\le \sup_{i\in\mathbb{Z}}\sup_{\tau\in[0,1]}||Df(x_i)||\cdot||\tau(y_i-x_i)|| \ (\because \text{mean value inequality for the Taylor's theorem}) \le M\epsilon'. 
+\end{align}
+So 
+\begin{align}
+    ||A{\bf x}-{\bf x}||_{\mathcal{B}} = ||A{\bf x}-A{\bf y}+A{\bf y}-{\bf y}+{\bf y}-{\bf x}||_{\mathcal{B}} \le (M+2)\epsilon',  
+\end{align}
+namely, ${\bf x}$ is a $(M+2)\epsilon'$-pseudo orbit. 
+Let 
+\begin{equation}
+    \epsilon = \min{\left(\frac{\delta }{2},\epsilon_{\frac{\delta}{2}}\right)},\quad \epsilon' = \frac{\epsilon}{M+2}, 
+\end{equation}
+where $\epsilon_{\frac{\delta}{2}}$ corresponds to the choice of $\epsilon$ for $\frac{\delta}{2}$ in the shadowing lemma. Then for any $\epsilon'$-pseudo orbit ${\bf y}$ lying in $U_{\epsilon'}$, there exists an $\epsilon$-pseudo orbit ${\bf x}$ lying in $\Lambda$, which satisfies (\ref{eq: closexy}) and can be $\delta/2$-shadowed by $z_0$. Obviously ${\bf y}$ is $\delta$-shadowed by $z_0$.  
+\hruleskip
+
+\subsection{4.64.}
+From the chain rule, 
+\begin{equation}
+    {\rm D}_{x_{n-1}}{\rm D}_{x_{n-1-j}}f^j = {\rm D}_{x_{n-1-j}}f^{j+1}, \quad {\rm D}_{x_{n-1}}{\rm D}_{x_{n-1+j}}f^{-j} = {\rm D}_{x_{n-1+j}}f^{-j+1}. \label{eq: Dxchain}
+\end{equation}
+Hence
+\begin{align}
+    &\left[(I-D_{\bf x}A)\circ(L_{\bf x})v \right]_n = 
+    \sum_{j=0}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} \nonumber \\
+    &- D_{x_{n-1}}f \left[ \sum_{j=0}^{\infty} \mathrm{D}_{x_{n-1-j}} f^j \Pi_{E_{x_{n-1-j}}^{\mathrm{s}}} v_{n-1-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n-1+j}} f^{-j} \Pi_{E_{x_{n-1+j}}^{\mathrm{u}}} v_{n-1+j} \right] \nonumber \\
+    &=\sum_{j=0}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} \nonumber \\
+    &-\sum_{j=0}^{\infty} \mathrm{D}_{x_{n-1-j}} f^{j+1} \Pi_{E_{x_{n-1-j}}^{\mathrm{s}}} v_{n-1-j}+\sum_{j=1}^{\infty} \mathrm{D}_{x_{n-1+j}} f^{-j+1} \Pi_{E_{x_{n-1+j}}^{\mathrm{u}}} v_{n-1+j} \quad (\because \text{ Eq.~\ref{eq: Dxchain}}) \nonumber \\
+    &=\Pi_{E_{x_{n}}^{\mathrm{s}}} v_{n} + \sum_{j=1}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} \nonumber \\
+    &-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n-j}} f^{j} \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}+\Pi_{E_{x_{n}}^{\mathrm{u}}} v_{n}+\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} = v_n. 
+\end{align}
+Thus $(I-D_{\bf x}A)\circ(L_{\bf x}) = {\rm id}$. 
+\vskip 1.0em
+
+$E^{\rm s}_x, E^{\rm u}_x$ are covariant w.r.t an action of the differential, i.e., ${\rm D}_{x_{n}}f^i(E^{\rm s}_{x_{n}})=E^{\rm s}_{x_{n+i}}, {\rm D}_{x_{n}}f^i(E^{\rm u}_{x_{n}})=E^{\rm u}_{x_{n+i}}$. Therefore 
+\begin{equation}
+    \Pi_{E_{x_{n-j}}^{\mathrm{s}}}{\rm D}_{x_{n-j-1}}f = {\rm D}_{x_{n-j-1}}f \ \Pi_{E_{x_{n-j-1}}^{\mathrm{s}}}, \quad \Pi_{E_{x_{n+j}}^{\mathrm{u}}}{\rm D}_{x_{n+j-1}}f = {\rm D}_{x_{n+j-1}}f \ \Pi_{E_{x_{n+j-1}}^{\mathrm{s}}}. \label{eq: prodcom}
+\end{equation}
+Also, 
+\begin{equation}
+    {\rm D}_{x_{n-j}}f^j{\rm D}_{x_{n-1-j}}f = {\rm D}_{x_{n-1-j}}f^{j+1}, \quad {\rm D}_{x_{n+j}}f^{-j}{\rm D}_{x_{n-1+j}}f = {\rm D}_{x_{n-1+j}}f^{-j+1}. \label{eq: DD}
+\end{equation}
+Then
+\begin{align}
+    &\left[(L_{\bf x})\circ (I-D_{\bf x}A)v \right]_n = 
+    \sum_{j=0}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} \nonumber \\
+    &-  \sum_{j=0}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} {\rm D}_{x_{n-1-j}} v_{n-1-j} + \sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} {\rm D}_{x_{n-1+j}} v_{n-1+j}  \nonumber \\
+    &=\sum_{j=0}^{\infty} \mathrm{D}_{x_{n-j}} f^j \Pi_{E_{x_{n-j}}^{\mathrm{s}}} v_{n-j}-\sum_{j=1}^{\infty} \mathrm{D}_{x_{n+j}} f^{-j} \Pi_{E_{x_{n+j}}^{\mathrm{u}}} v_{n+j} \nonumber \\
+    &-\sum_{j=0}^{\infty} \mathrm{D}_{x_{n-1-j}} f^{j+1} \Pi_{E_{x_{n-1-j}}^{\mathrm{s}}} v_{n-1-j}+\sum_{j=1}^{\infty} \mathrm{D}_{x_{n-1+j}} f^{-j+1} \Pi_{E_{x_{n-1+j}}^{\mathrm{u}}} v_{n-1+j} \quad (\because \text{ Eqs.~\ref{eq: prodcom},~\ref{eq: DD}}) \nonumber \\
+    &=v_n. 
+\end{align}
+Thus $(L_{\bf x})\circ(I-D_{\bf x}A) = {\rm id}$. 
+\hruleskip
+
+\subsection{4.70.}
+\end{document}

@@ -69,4 +69,42 @@ Thus $(L_{\bf x})\circ(I-D_{\bf x}A) = {\rm id}$.
 \hruleskip
 
 \subsection{4.70.}
+Let $x_*, y_*$ are fixed points of $f, g$ respectively and $\Phi(x_*)=y_*$. Then
+\begin{align}
+    {\rm D}(\Phi\circ f)(x_*) = {\rm D}(g\circ \Phi)(x_*) \Leftrightarrow {\rm D}\Phi(x_*){\rm D}f(x_*)={\rm D}g(y_*){\rm D}\Phi(x_*) \ (\because f(x_*)=x_*, \Phi(x_*)=y_*).
+\end{align}
+Therefore ${\rm D}f(x_*)$ and ${\rm D}g(y_*)$ are similar. 
+\vskip 1.0em
+
+Let $x_*, y_*$ are fixed points of $f^n, g^n$ respectively and $\Phi(x_*)=y_*$. Then
+\begin{align}
+    {\rm D}(\Phi\circ f^n)(x_*) = {\rm D}(g^n\circ \Phi)(x_*) \Leftrightarrow {\rm D}\Phi(x_*){\rm D}f^n(x_*)={\rm D}g^n(y_*){\rm D}\Phi(x_*) \ (\because f^n(x_*)=x_*, \Phi(x_*)=y_*).
+\end{align}
+Therefore ${\rm D}f^n(x_*)$ and ${\rm D}g^n(y_*)$ are similar. 
+\hruleskip
+
+\subsection{4.76.}
+We introduce a coordinate $z$ (resp. $w$) in direction of the long (resp. short) side of the red rectangle, where the unit length is defined as that of the long (resp. short) side. In the following, we consider in the $z-w$ coordinate. 
+\vskip 1.0em
+
+Let $R$ be the red rectangle and
+\begin{equation}
+    D_n = R\cap \left(\bigcap_{i=1}^n{f^{-i}(R)}\right), \quad D_0 = R.
+\end{equation}
+The set of points whose forward codes are the same is described as $\lim_{n\to\infty}{D_n}$. We can easily see that 
+\begin{equation}
+    D_{n+1} = R\cap f^{-1}(D_n). \label{eq: recdefD}
+\end{equation}
+Let $\lambda=(3-\sqrt{5})/2$, $T_{\rm L}=\lambda z\times[0,1)$, $T_{\rm R} =(\lambda z-(\lambda-1))\times[0,1)$. The recursive relation (\ref{eq: recdefD}) is translated as 
+\begin{equation}
+    D_{n+1}=T_{\rm L}(D_{n})\cup T_{\rm R}(D_{n}). 
+\end{equation}
+This decreasing series of set converges to the desired Cantor set. 
+\hruleskip
+
+\subsection{4.79.}
+See~\cite[pp.~53--55]{bowen2008equilibrium}. 
+\hruleskip
+
+\bib{chap04}
 \end{document}
